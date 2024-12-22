@@ -16,12 +16,12 @@ void main() async {
       create: (context) => MyProvider(),
       child: EasyLocalization(
         supportedLocales: [
-          Locale('en'),
-          Locale('ar'),
+          const Locale('en'),
+          const Locale('ar'),
         ],
         path: 'assets/translations',
         // <-- change the path of the translation files
-        fallbackLocale: Locale('en'),
+        fallbackLocale: const Locale('en'),
         child: const MyApp(),
       ),
     ),
@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
       theme: theme.themeData,
       themeMode: provider.themeMode,
       routes: {
-        IntroductionScreen.routeName: (context) => IntroductionScreen(),
+        IntroductionScreen.routeName: (context) => const IntroductionScreen(),
       },
     );
   }
