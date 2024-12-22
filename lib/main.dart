@@ -2,6 +2,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_c13_sun/providers/my_provider.dart';
+import 'package:todo_c13_sun/screens/auth/forget_password.dart';
+import 'package:todo_c13_sun/screens/auth/login.dart';
+import 'package:todo_c13_sun/screens/auth/register.dart';
+import 'package:todo_c13_sun/screens/home/home.dart';
 import 'package:todo_c13_sun/screens/lets_go_screen.dart';
 import 'package:todo_c13_sun/theme/dark_theme.dart';
 import 'package:todo_c13_sun/theme/light_theme.dart';
@@ -48,6 +52,10 @@ class MyApp extends StatelessWidget {
       themeMode: provider.themeMode,
       routes: {
         IntroductionScreen.routeName: (context) => const IntroductionScreen(),
+        LoginScreen.routeName: (context) =>  LoginScreen(),
+        RegisterScreen.routeName: (context) =>  RegisterScreen(),
+        HomeScreen.routeName: (context) =>  HomeScreen(),
+        ForgetPassword.routeName: (context) =>  ForgetPassword(),
       },
     );
   }

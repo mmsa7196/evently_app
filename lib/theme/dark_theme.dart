@@ -14,6 +14,7 @@ class DarkTheme extends BaseTheme {
 
   @override
    ThemeData get themeData => ThemeData(
+    focusColor: primaryColor,
     primaryColor: primaryColor,
     hintColor: backgroundColor,
     scaffoldBackgroundColor: backgroundColor,

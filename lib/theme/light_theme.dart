@@ -17,6 +17,7 @@ class LightTheme extends BaseTheme {
 
   @override
   ThemeData get themeData => ThemeData(
+    focusColor: Color(0xff7B7B7B),
         primaryColor: primaryColor,
         hintColor: backgroundColor,
         scaffoldBackgroundColor: backgroundColor,
@@ -35,7 +36,10 @@ class LightTheme extends BaseTheme {
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.white,
         ),
-        textTheme: TextTheme(
+    inputDecorationTheme: InputDecorationTheme(
+    ),
+    textTheme: TextTheme(
+
           titleSmall: GoogleFonts.inter(
             fontSize: 16,
             color: primaryColor,
