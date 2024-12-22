@@ -6,8 +6,10 @@ import '../lets_go_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
   static const String routeName = "registerScreen";
-  TextEditingController emaillController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController repasswordController = TextEditingController();
 
   RegisterScreen({super.key});
 
@@ -30,118 +32,48 @@ class RegisterScreen extends StatelessWidget {
               height: 24,
             ),
             TextField(
-              controller: emaillController,
+              controller: nameController,
               style: Theme.of(context).textTheme.bodyMedium,
               decoration: InputDecoration(
                 hintText: "Name",
                 prefixIcon: Icon(Icons.person),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
-                    borderSide: BorderSide(
-                        color: Theme.of(context).focusColor, width: 2)),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide:
-                      BorderSide(color: Theme.of(context).focusColor, width: 2),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide:
-                      BorderSide(color: Theme.of(context).focusColor, width: 2),
-                ),
-                errorBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide: BorderSide(color: Colors.red, width: 2),
-                ),
+
               ),
             ),
             SizedBox(
               height: 16,
             ),
             TextField(
-              controller: emaillController,
+              controller: emailController,
               style: Theme.of(context).textTheme.bodyMedium,
               decoration: InputDecoration(
                 hintText: "Email",
                 prefixIcon: Icon(Icons.email),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
-                    borderSide: BorderSide(
-                        color: Theme.of(context).focusColor, width: 2)),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide:
-                      BorderSide(color: Theme.of(context).focusColor, width: 2),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide:
-                      BorderSide(color: Theme.of(context).focusColor, width: 2),
-                ),
-                errorBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide: BorderSide(color: Colors.red, width: 2),
-                ),
               ),
             ),
             SizedBox(
               height: 16,
             ),
             TextField(
-              controller: emaillController,
+              controller: passwordController,
               style: Theme.of(context).textTheme.bodyMedium,
               decoration: InputDecoration(
                 hintText: "Password",
                 prefixIcon: Icon(Icons.lock),
                 suffixIcon: Icon(Icons.visibility),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
-                    borderSide: BorderSide(
-                        color: Theme.of(context).focusColor, width: 2)),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide:
-                  BorderSide(color: Theme.of(context).focusColor, width: 2),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide:
-                  BorderSide(color: Theme.of(context).focusColor, width: 2),
-                ),
-                errorBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide: BorderSide(color: Colors.red, width: 2),
-                ),
               ),
             ),
             SizedBox(
               height: 16,
             ),
             TextField(
-              controller: emaillController,
+              controller: repasswordController,
               style: Theme.of(context).textTheme.bodyMedium,
               decoration: InputDecoration(
                 hintText: "rePassword",
                 prefixIcon: Icon(Icons.lock),
                 suffixIcon: Icon(Icons.visibility_off_outlined),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
-                    borderSide: BorderSide(
-                        color: Theme.of(context).focusColor, width: 2)),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide:
-                  BorderSide(color: Theme.of(context).focusColor, width: 2),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide:
-                  BorderSide(color: Theme.of(context).focusColor, width: 2),
-                ),
-                errorBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide: BorderSide(color: Colors.red, width: 2),
-                ),
+             
               ),
             ),
             SizedBox(

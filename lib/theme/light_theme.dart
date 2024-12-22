@@ -22,21 +22,46 @@ class LightTheme extends BaseTheme {
         hintColor: backgroundColor,
         scaffoldBackgroundColor: backgroundColor,
         appBarTheme: AppBarTheme(
-          backgroundColor: backgroundColor,
+          backgroundColor: primaryColor,
           centerTitle: true,
           iconTheme: IconThemeData(
-            color: primaryColor,
+            color: Colors.white,
+          ),
+        ),
+        floatingActionButtonTheme: FloatingActionButtonThemeData(
+          backgroundColor: primaryColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(35),
+            side: BorderSide(color: Colors.white, width: 4),
           ),
         ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: primaryColor,
           showSelectedLabels: true,
-          showUnselectedLabels: true,
+          showUnselectedLabels: false,
           type: BottomNavigationBarType.fixed,
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.white,
         ),
     inputDecorationTheme: InputDecorationTheme(
+      enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide(
+              color: Color(0xff7B7B7B), width: 2)),
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide:
+        BorderSide(color: Color(0xff7B7B7B), width: 2),
+      ),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide:
+        BorderSide(color: Color(0xff7B7B7B), width: 2),
+      ),
+      errorBorder: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(16),
+        borderSide: BorderSide(color: Colors.red, width: 2),
+      ),
     ),
     textTheme: TextTheme(
 
@@ -51,7 +76,7 @@ class LightTheme extends BaseTheme {
             fontWeight: FontWeight.bold,
           ),
           titleLarge: GoogleFonts.inter(
-            fontSize: 26,
+            fontSize: 29,
             color: primaryColor,
             fontWeight: FontWeight.bold,
           ),

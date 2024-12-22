@@ -30,24 +30,6 @@ class ForgetPassword extends StatelessWidget {
               decoration: InputDecoration(
                 hintText: "Emaill",
                 prefixIcon: Icon(Icons.email),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
-                    borderSide: BorderSide(
-                        color: Theme.of(context).focusColor, width: 2)),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide:
-                  BorderSide(color: Theme.of(context).focusColor, width: 2),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide:
-                  BorderSide(color: Theme.of(context).focusColor, width: 2),
-                ),
-                errorBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(16),
-                  borderSide: BorderSide(color: Colors.red, width: 2),
-                ),
               ),
             ),
             SizedBox(
