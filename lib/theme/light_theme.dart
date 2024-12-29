@@ -17,7 +17,7 @@ class LightTheme extends BaseTheme {
 
   @override
   ThemeData get themeData => ThemeData(
-    focusColor: Color(0xff7B7B7B),
+        focusColor: Color(0xff7B7B7B),
         primaryColor: primaryColor,
         hintColor: backgroundColor,
         scaffoldBackgroundColor: backgroundColor,
@@ -43,28 +43,24 @@ class LightTheme extends BaseTheme {
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.white,
         ),
-    inputDecorationTheme: InputDecorationTheme(
-      enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(16),
-          borderSide: BorderSide(
-              color: Color(0xff7B7B7B), width: 2)),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(16),
-        borderSide:
-        BorderSide(color: Color(0xff7B7B7B), width: 2),
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(16),
-        borderSide:
-        BorderSide(color: Color(0xff7B7B7B), width: 2),
-      ),
-      errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(16),
-        borderSide: BorderSide(color: Colors.red, width: 2),
-      ),
-    ),
-    textTheme: TextTheme(
-
+        inputDecorationTheme: InputDecorationTheme(
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(16),
+              borderSide: BorderSide(color: Color(0xff7B7B7B), width: 2)),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: BorderSide(color: Color(0xff7B7B7B), width: 2),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: BorderSide(color: Color(0xff7B7B7B), width: 2),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(16),
+            borderSide: BorderSide(color: Colors.red, width: 2),
+          ),
+        ),
+        textTheme: TextTheme(
           titleSmall: GoogleFonts.inter(
             fontSize: 16,
             color: primaryColor,
@@ -79,6 +75,11 @@ class LightTheme extends BaseTheme {
             fontSize: 29,
             color: primaryColor,
             fontWeight: FontWeight.bold,
+          ),
+          bodyMedium: GoogleFonts.inter(
+            fontSize: 25,
+            color: primaryColor,
+            fontWeight: FontWeight.w300,
           ),
         ),
       );

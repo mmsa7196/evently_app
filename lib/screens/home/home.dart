@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_c13_sun/screens/create_event/create_event.dart';
 import 'package:todo_c13_sun/screens/home/tabs/home_tab.dart';
 import 'package:todo_c13_sun/screens/home/tabs/love_tab.dart';
 import 'package:todo_c13_sun/screens/home/tabs/map_tab.dart';
@@ -21,8 +22,14 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add,color: Colors.white,size: 30,),
+        onPressed: () {
+          Navigator.pushNamed(context, CreateEventScreen.routeName);
+        },
+        child: Icon(
+          Icons.add,
+          color: Colors.white,
+          size: 30,
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: selectedIndex,

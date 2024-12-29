@@ -5,6 +5,7 @@ import 'package:todo_c13_sun/providers/my_provider.dart';
 import 'package:todo_c13_sun/screens/auth/forget_password.dart';
 import 'package:todo_c13_sun/screens/auth/login.dart';
 import 'package:todo_c13_sun/screens/auth/register.dart';
+import 'package:todo_c13_sun/screens/create_event/create_event.dart';
 import 'package:todo_c13_sun/screens/home/home.dart';
 import 'package:todo_c13_sun/screens/lets_go_screen.dart';
 import 'package:todo_c13_sun/theme/dark_theme.dart';
@@ -55,6 +56,7 @@ class MyApp extends StatelessWidget {
         LoginScreen.routeName: (context) =>  LoginScreen(),
         RegisterScreen.routeName: (context) =>  RegisterScreen(),
         HomeScreen.routeName: (context) =>  HomeScreen(),
+        CreateEventScreen.routeName: (context) =>  CreateEventScreen(),
         ForgetPassword.routeName: (context) =>  ForgetPassword(),
       },
     );

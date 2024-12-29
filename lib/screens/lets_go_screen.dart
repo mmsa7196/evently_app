@@ -42,6 +42,7 @@ class IntroductionScreen extends StatelessWidget {
             )),
       ),
       appBar: AppBar(
+        backgroundColor:Theme.of(context).scaffoldBackgroundColor,
         title: Image.asset("assets/images/app_logo.png"),
       ),
       body: Padding(
