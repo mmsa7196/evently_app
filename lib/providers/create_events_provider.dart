@@ -13,9 +13,17 @@ class CreateEventsProvider extends ChangeNotifier {
     "sport",
     "workshop",
   ];
+  var selectedDate = DateTime.now();
 
   String get imageName => eventsCategories[selectedEventIndex];
+
   String get selectedEvent => eventsCategories[selectedEventIndex];
+
+  changeSelectedDate(DateTime date) {
+    selectedDate = date;
+
+    notifyListeners();
+  }
 
   changeEventType(int index) {
     selectedEventIndex = index;

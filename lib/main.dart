@@ -14,12 +14,15 @@ import 'package:todo_c13_sun/theme/dark_theme.dart';
 import 'package:todo_c13_sun/theme/light_theme.dart';
 import 'package:todo_c13_sun/theme/theme.dart';
 
+import 'firebase/firebase_manager.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
 
   runApp(
     ChangeNotifierProvider(
@@ -41,10 +44,9 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-
   @override
   Widget build(BuildContext context) {
-    var provider=Provider.of<MyProvider>(context);
+    var provider = Provider.of<MyProvider>(context);
     BaseTheme theme = LightTheme();
     BaseTheme darkTheme = DarkTheme();
     return MaterialApp(
@@ -58,11 +60,11 @@ class MyApp extends StatelessWidget {
       themeMode: provider.themeMode,
       routes: {
         IntroductionScreen.routeName: (context) => const IntroductionScreen(),
-        LoginScreen.routeName: (context) =>  LoginScreen(),
-        RegisterScreen.routeName: (context) =>  RegisterScreen(),
-        HomeScreen.routeName: (context) =>  HomeScreen(),
-        CreateEventScreen.routeName: (context) =>  CreateEventScreen(),
-        ForgetPassword.routeName: (context) =>  ForgetPassword(),
+        LoginScreen.routeName: (context) => LoginScreen(),
+        RegisterScreen.routeName: (context) => RegisterScreen(),
+        HomeScreen.routeName: (context) => HomeScreen(),
+        CreateEventScreen.routeName: (context) => CreateEventScreen(),
+        ForgetPassword.routeName: (context) => ForgetPassword(),
       },
     );
   }
