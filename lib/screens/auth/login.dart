@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todo_c13_sun/firebase/firebase_manager.dart';
+import 'package:todo_c13_sun/providers/user_provider.dart';
 import 'package:todo_c13_sun/screens/auth/register.dart';
 import 'package:todo_c13_sun/screens/home/home.dart';
 
@@ -13,6 +16,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<UserProvider>(context);
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -36,7 +40,6 @@ class LoginScreen extends StatelessWidget {
                 decoration: const InputDecoration(
                   hintText: "Emaill",
                   prefixIcon: Icon(Icons.email),
-                 
                 ),
               ),
               SizedBox(
@@ -72,7 +75,45 @@ class LoginScreen extends StatelessWidget {
               ),
               ElevatedButton(
                   onPressed: () {
-                    Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+                    FirebaseManager.login(
+                      emaillController.text,
+                      passwordController.text,
+                      () {
+                        showDialog(
+                          context: context,
+                          builder: (context) => const AlertDialog(
+                            backgroundColor: Colors.transparent,
+                            title: Center(child: CircularProgressIndicator()),
+                          ),
+                        );
+                      },
+                      () {
+                        Navigator.pop(context);
+                        provider.initUser();
+                        Navigator.pushNamedAndRemoveUntil(
+                          context,
+                          HomeScreen.routeName,
+                          (route) => false,
+                        );
+                      },
+                      (message) {
+                        Navigator.pop(context);
+                        showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            title: const Text("Something went wrong"),
+                            content: Text(message),
+                            actions: [
+                              ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text("OK"))
+                            ],
+                          ),
+                        );
+                      },
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.symmetric(vertical: 12),
@@ -106,9 +147,10 @@ class LoginScreen extends StatelessWidget {
                       ),
                       TextSpan(
                           text: " Create Account",
-                          style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                                decoration: TextDecoration.underline,
-                              )!),
+                          style:
+                              Theme.of(context).textTheme.titleSmall!.copyWith(
+                                    decoration: TextDecoration.underline,
+                                  )!),
                     ],
                   ),
                 ),

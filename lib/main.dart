@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_c13_sun/firebase_options.dart';
 import 'package:todo_c13_sun/providers/my_provider.dart';
+import 'package:todo_c13_sun/providers/user_provider.dart';
 import 'package:todo_c13_sun/screens/auth/forget_password.dart';
 import 'package:todo_c13_sun/screens/auth/login.dart';
 import 'package:todo_c13_sun/screens/auth/register.dart';
@@ -23,10 +24,16 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => MyProvider(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => MyProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => UserProvider(),
+        ),
+      ],
       child: EasyLocalization(
         supportedLocales: [
           const Locale('en'),
@@ -47,6 +54,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<MyProvider>(context);
+    var userProvider = Provider.of<UserProvider>(context);
     BaseTheme theme = LightTheme();
     BaseTheme darkTheme = DarkTheme();
     return MaterialApp(
@@ -54,7 +62,9 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       debugShowCheckedModeBanner: false,
-      initialRoute: IntroductionScreen.routeName,
+      initialRoute: userProvider.firebaseUser != null
+          ? HomeScreen.routeName
+          : IntroductionScreen.routeName,
       darkTheme: darkTheme.themeData,
       theme: theme.themeData,
       themeMode: provider.themeMode,

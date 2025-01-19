@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_c13_sun/firebase/firebase_manager.dart';
@@ -128,6 +129,7 @@ class CreateEventScreen extends StatelessWidget {
                     child: ElevatedButton(
                         onPressed: () {
                           TaskModel task = TaskModel(
+                              userId: FirebaseAuth.instance.currentUser!.uid,
                               date:
                                   provider.selectedDate.millisecondsSinceEpoch,
                               title: titleController.text,

@@ -1,15 +1,38 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_c13_sun/firebase/firebase_manager.dart';
 import 'package:todo_c13_sun/models/task_model.dart';
+import 'package:todo_c13_sun/providers/user_provider.dart';
 
 import '../../widgets/event_item.dart';
 
-class HomeTab extends StatelessWidget {
-  const HomeTab({super.key});
+class HomeTab extends StatefulWidget {
+  HomeTab({super.key});
+
+  @override
+  State<HomeTab> createState() => _HomeTabState();
+}
+
+class _HomeTabState extends State<HomeTab> {
+  int selectedCategory = 0;
+
+  List<String> eventsCategories = [
+    "All",
+    "birthday",
+    "book_club",
+    "eating",
+    "meeting",
+    "exhibtion",
+    "holiday",
+    "sport",
+    "workshop",
+  ];
 
   @override
   Widget build(BuildContext context) {
+    var userProvider = Provider.of<UserProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         leading: SizedBox(),
@@ -26,7 +49,7 @@ class HomeTab extends StatelessWidget {
                   .copyWith(color: Colors.white, fontSize: 17),
             ),
             Text(
-              "John Safwat",
+              userProvider.userModel?.name ?? "null",
               style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     color: Colors.white,
                   ),
@@ -52,6 +75,45 @@ class HomeTab extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(
+              height: 8,
+            ),
+            Container(
+              height: 40,
+              child: ListView.separated(
+                separatorBuilder: (context, index) => SizedBox(
+                  width: 12,
+                ),
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      selectedCategory = index;
+                      setState(() {});
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.symmetric(horizontal: 16),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(18),
+                          border: Border.all(color: Colors.white),
+                          color: selectedCategory == index
+                              ? Colors.white
+                              : Colors.transparent),
+                      child: Text(
+                        eventsCategories[index],
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                            color: selectedCategory == index
+                                ? Theme.of(context).primaryColor
+                                : Colors.white),
+                      ),
+                    ),
+                  );
+                },
+                itemCount: eventsCategories.length,
+                scrollDirection: Axis.horizontal,
+              ),
+            )
           ],
         ),
         actions: [
@@ -75,8 +137,17 @@ class HomeTab extends StatelessWidget {
         toolbarHeight: 174,
       ),
       body: StreamBuilder<QuerySnapshot<TaskModel>>(
-        stream: FirebaseManager.getEvents(),
+        stream: FirebaseManager.getEvents(eventsCategories[selectedCategory]),
         builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(child: CircularProgressIndicator());
+          }
+          if (snapshot.hasError) {
+            return Center(child: Text("Something went wrong"));
+          }
+          if (snapshot.data!.docs.isEmpty) {
+            return Center(child: Text("No Tasks"));
+          }
           return Padding(
             padding: const EdgeInsets.all(8.0),
             child: ListView.separated(
