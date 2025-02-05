@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:todo_c13_sun/providers/my_provider.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
-import 'auth/login.dart';
+import 'login/login.dart';
 
 class IntroductionScreen extends StatelessWidget {
   static const String routeName = "letsGoScreen";

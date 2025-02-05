@@ -114,22 +114,7 @@ class FirebaseManager {
     }
   }
 
-  static Future<void> login(String email, String password, Function onLoading,
-      Function onSuccess, Function onError) async {
-    try {
-      onLoading();
-      final credential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
 
-      // if (credential.user!.emailVerified) {
-      onSuccess();
-      // } else {
-      //   onError("Please verify your mail , check your inbox");
-      // }
-    } on FirebaseAuthException catch (e) {
-      onError("Wrong mail or password");
-    }
-  }
 
   static logout() {
     FirebaseAuth.instance.signOut();

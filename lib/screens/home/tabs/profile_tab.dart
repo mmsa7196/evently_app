@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_c13_sun/firebase/firebase_manager.dart';
-import 'package:todo_c13_sun/screens/auth/login.dart';
+import 'package:todo_c13_sun/screens/login/login.dart';
 
 class ProfileTab extends StatelessWidget {
   const ProfileTab({super.key});
