@@ -3,10 +3,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_c13_sun/firebase_options.dart';
+import 'package:todo_c13_sun/onboarding_Screen.dart';
 import 'package:todo_c13_sun/providers/my_provider.dart';
 import 'package:todo_c13_sun/providers/user_provider.dart';
 import 'package:todo_c13_sun/screens/auth/forget_password.dart';
-import 'package:todo_c13_sun/screens/login/login.dart';
+import 'package:todo_c13_sun/screens/login/login_screen.dart';
 import 'package:todo_c13_sun/screens/auth/register.dart';
 import 'package:todo_c13_sun/screens/create_event/create_event.dart';
 import 'package:todo_c13_sun/screens/home/home.dart';
@@ -15,7 +16,6 @@ import 'package:todo_c13_sun/theme/dark_theme.dart';
 import 'package:todo_c13_sun/theme/light_theme.dart';
 import 'package:todo_c13_sun/theme/theme.dart';
 
-import 'firebase/firebase_manager.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -69,7 +69,8 @@ class MyApp extends StatelessWidget {
       theme: theme.themeData,
       themeMode: provider.themeMode,
       routes: {
-        IntroductionScreen.routeName: (context) => const IntroductionScreen(),
+        IntroductionScreen.routeName: (context) =>  IntroductionScreen(),
+        OnboardingScreen.routeName:(context)=> OnboardingScreen(),
         LoginScreen.routeName: (context) => LoginScreen(),
         RegisterScreen.routeName: (context) => RegisterScreen(),
         HomeScreen.routeName: (context) => HomeScreen(),

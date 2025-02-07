@@ -1,7 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_c13_sun/base.dart';
-import 'package:todo_c13_sun/firebase/firebase_manager.dart';
 import 'package:todo_c13_sun/providers/user_provider.dart';
 import 'package:todo_c13_sun/screens/auth/register.dart';
 import 'package:todo_c13_sun/screens/home/home.dart';
@@ -11,7 +11,7 @@ import 'package:todo_c13_sun/screens/login/login_viewmodel.dart';
 import '../auth/forget_password.dart';
 
 class LoginScreen extends StatefulWidget {
-  static const String routeName = "loginScreen";
+  static const String routeName = "Login";
 
   LoginScreen({super.key});
 
@@ -43,37 +43,37 @@ class _LoginScreenState extends BaseView<LoginScreen, LoginViewModel>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
                 Image.asset(
                   'assets/images/login_image.png',
                   height: 150,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 24,
                 ),
                 TextField(
                   controller: emaillController,
                   style: Theme.of(context).textTheme.bodyMedium,
-                  decoration: const InputDecoration(
-                    hintText: "Emaill",
-                    prefixIcon: Icon(Icons.email),
+                  decoration: InputDecoration(
+                    hintText: "Email".tr(),
+                    prefixIcon: const Icon(Icons.email),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 TextField(
                   controller: passwordController,
                   style: Theme.of(context).textTheme.bodyMedium,
                   decoration: InputDecoration(
-                    hintText: "Password",
-                    prefixIcon: Icon(Icons.lock),
-                    suffixIcon: Icon(Icons.visibility),
+                    hintText: "Password".tr(),
+                    prefixIcon: const Icon(Icons.lock),
+                    suffixIcon: const Icon(Icons.visibility),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 16,
                 ),
                 Align(
@@ -83,13 +83,13 @@ class _LoginScreenState extends BaseView<LoginScreen, LoginViewModel>
                         Navigator.pushNamed(context, ForgetPassword.routeName);
                       },
                       child: Text(
-                        "Forget Password?",
+                        "Forget Password ?".tr(),
                         style: Theme.of(context).textTheme.titleSmall!.copyWith(
                               decoration: TextDecoration.underline,
                             )!,
                       )),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 24,
                 ),
                 ElevatedButton(
@@ -100,18 +100,18 @@ class _LoginScreenState extends BaseView<LoginScreen, LoginViewModel>
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 12),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12)),
-                        backgroundColor: Color(0xFF5669FF)),
+                        backgroundColor: const Color(0xFF5669FF)),
                     child: Text(
-                      "login",
+                      "login".tr() ,
                       style: Theme.of(context)
                           .textTheme
                           .titleMedium!
                           .copyWith(color: Colors.white),
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 24,
                 ),
                 InkWell(
@@ -123,7 +123,7 @@ class _LoginScreenState extends BaseView<LoginScreen, LoginViewModel>
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: "Don’t Have Account?",
+                          text: "Don’t Have Account ?".tr(),
                           style:
                               Theme.of(context).textTheme.bodySmall!.copyWith(
                                     fontSize: 16,
@@ -131,7 +131,7 @@ class _LoginScreenState extends BaseView<LoginScreen, LoginViewModel>
                                   ),
                         ),
                         TextSpan(
-                            text: " Create Account",
+                            text: "Create Account".tr(),
                             style: Theme.of(context)
                                 .textTheme
                                 .titleSmall!
@@ -142,27 +142,28 @@ class _LoginScreenState extends BaseView<LoginScreen, LoginViewModel>
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 24,
                 ),
                 Row(
                   children: [
                     Expanded(
                       child: Divider(
-                        endIndent: 40,
-                        indent: 10,
+                        endIndent: 20,
+                        indent: 20,
+                        thickness: 2,
                         color: Theme.of(context).primaryColor,
                       ),
                     ),
                     Text(
-                      "OR",
+                      "OR".tr(),
                       style: Theme.of(context).textTheme.titleSmall,
                     ),
                     Expanded(
                       child: Divider(
-                        endIndent: 40,
-                        indent: 10,
-                        thickness: 1,
+                        endIndent: 20,
+                        indent: 20,
+                        thickness: 2,
                         color: Theme.of(context).primaryColor,
                       ),
                     ),

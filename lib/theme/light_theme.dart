@@ -63,7 +63,7 @@ class LightTheme extends BaseTheme {
         textTheme: TextTheme(
           titleSmall: GoogleFonts.inter(
             fontSize: 16,
-            color: primaryColor,
+            color: textColor,
             fontWeight: FontWeight.bold,
           ),
           titleMedium: GoogleFonts.inter(

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -42,14 +43,14 @@ class CreateEventScreen extends StatelessWidget {
                       height: 225,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   Container(
                     height: 44,
                     alignment: Alignment.center,
                     child: ListView.separated(
-                      separatorBuilder: (context, index) => SizedBox(
+                      separatorBuilder: (context, index) => const SizedBox(
                         width: 16,
                       ),
                       scrollDirection: Axis.horizontal,
@@ -68,47 +69,57 @@ class CreateEventScreen extends StatelessWidget {
                       itemCount: provider.eventsCategories.length,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Row(children: [Text("Title",style: Theme.of(context).textTheme.titleSmall,)],),
+                  const SizedBox(
                     height: 16,
                   ),
                   TextField(
                     controller: titleController,
                     style: Theme.of(context).textTheme.bodyMedium,
                     decoration: const InputDecoration(
-                      hintText: "Title",
+                      hintText: "Event Title",
                       prefixIcon: Icon(Icons.edit_note),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Row(children: [Text("Description",style: Theme.of(context).textTheme.titleSmall,)],),
+                  const SizedBox(
                     height: 16,
                   ),
                   TextField(
                     controller: descriptionController,
                     style: Theme.of(context).textTheme.titleSmall,
                     maxLines: 4,
-                    decoration: InputDecoration(
-                      hintText: "description",
+                    decoration: const InputDecoration(
+                      hintText: "Make thoughtful choices to balance your decisions carefully.",
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      const Icon(Icons.calendar_month_outlined),
+                      const SizedBox(width: 10,),
                       Text(
                         "Select Date",
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
+                      const Spacer(),
                       InkWell(
                         onTap: () async {
                           var chosenDate = await showDatePicker(
                               context: context,
                               initialDate: DateTime.now(),
                               firstDate:
-                                  DateTime.now().subtract(Duration(days: 365)),
+                                  DateTime.now().subtract(const Duration(days: 365)),
                               lastDate:
-                                  DateTime.now().add(Duration(days: 365)));
+                                  DateTime.now().add(const Duration(days: 365)));
 
                           if (chosenDate != null) {
                             provider.changeSelectedDate(chosenDate);
@@ -121,7 +132,108 @@ class CreateEventScreen extends StatelessWidget {
                       ),
                     ],
                   ),
+                  const SizedBox(height: 16,),
+                  Row(
+                    children: [
+                      const Icon(Icons.timer_outlined),
+                      const SizedBox(width: 10,),
+                      Text(
+                        "Event Time",
+                        style: Theme.of(context).textTheme.titleSmall,
+                      ),
+                      const Spacer(),
+                      InkWell(
+                        onTap: () async {
+                          // Show a Time Picker
+                          var timeOfDay = await showTimePicker(
+                            context: context,
+                            // returns with current time
+                            initialTime:
+                            TimeOfDay.fromDateTime(provider.selectedDate),
+                          );
+                          if (timeOfDay != null) {
+                            final newDateTime = DateTime(
+                              provider.selectedDate.year, // don't changed
+                              provider.selectedDate.month, // don't changed
+                              provider.selectedDate.day, // don't changed
+                              timeOfDay.hour, // changed
+                              timeOfDay.minute, // changed
+                            );
+                            provider.changeSelectedDate(newDateTime);
+                          }
+                        },
+                        child: Text(
+                          DateFormat.jm('en_US').format(provider.selectedDate),
+                          style: Theme.of(context)
+                              .textTheme
+                              .titleSmall!
+                              .copyWith(color: Theme.of(context).primaryColor),
+                        ),
+                      ),
+                    ],
+                  ),
                   SizedBox(
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            "Location".tr(),
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                  OutlinedButton(
+                    onPressed: () {
+
+
+
+                    },
+                    style: OutlinedButton.styleFrom(
+                        foregroundColor: const Color(0xFF5669FF),
+                        side: const BorderSide(width: 3, color: Color(0xFF5669FF)),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                          side: const BorderSide(width: 3, color: Color(0xFF5669FF)),
+                        ),
+                        padding: const EdgeInsets.all(8)),
+                    child: Row(
+                      children: [
+                        Container(
+                          child: const Icon(
+                            Icons.gps_fixed,
+                            color: Color(0xff0FFF2FEFF),
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: const Color(0xFF5669FF),
+                          ),
+                          padding: const EdgeInsets.all(12),
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        const Expanded(
+                          child: Text("Choose Event Location",
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 8,
+                        ),
+                        const Icon(
+                          Icons.arrow_forward_ios,
+                          color: Color(0xFF5669FF),
+                        )
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
                     height: 24,
                   ),
                   Container(
@@ -142,10 +254,10 @@ class CreateEventScreen extends StatelessWidget {
                           );
                         },
                         style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(vertical: 12),
+                            padding: const EdgeInsets.symmetric(vertical: 12),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12)),
-                            backgroundColor: Color(0xFF5669FF)),
+                            backgroundColor: const Color(0xFF5669FF)),
                         child: Text(
                           "Add Event",
                           style: Theme.of(context)

@@ -1,5 +1,5 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-
 class ForgetPassword extends StatelessWidget {
   static const String routeName = "forgetpassword";
   TextEditingController emaillController = TextEditingController();
@@ -9,7 +9,7 @@ class ForgetPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        title: Text("Forget Password",
+        title: Text("Forget Password".tr(),
         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
           fontSize: 20
         ),),
@@ -21,30 +21,30 @@ class ForgetPassword extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Image.asset("assets/images/forget_password.png"),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             TextField(
               controller: emaillController,
               style: Theme.of(context).textTheme.bodyMedium,
               decoration: InputDecoration(
-                hintText: "Emaill",
-                prefixIcon: Icon(Icons.email),
+                hintText: "Email".tr(),
+                prefixIcon: const Icon(Icons.email),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 24,
             ),
             ElevatedButton(
                 onPressed: () {
                 },
                 style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(vertical: 12),
+                    padding: const EdgeInsets.symmetric(vertical: 12),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12)),
-                    backgroundColor: Color(0xFF5669FF)),
+                    backgroundColor: const Color(0xFF5669FF)),
                 child: Text(
-                  "Send Email",
+                  "Send Email".tr(),
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium!

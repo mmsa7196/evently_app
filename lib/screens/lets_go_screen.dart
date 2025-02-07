@@ -3,16 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_c13_sun/onboarding_Screen.dart';
 import 'package:todo_c13_sun/providers/my_provider.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
-import 'login/login.dart';
+import 'login/login_screen.dart';
 
-class IntroductionScreen extends StatelessWidget {
-  static const String routeName = "letsGoScreen";
+class IntroductionScreen extends StatefulWidget {
+  static const String routeName = "IntroductionScreen";
 
   const IntroductionScreen({super.key});
 
+  @override
+  State<IntroductionScreen> createState() => _IntroductionScreenState();
+}
+
+class _IntroductionScreenState extends State<IntroductionScreen> {
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<MyProvider>(context);
@@ -26,7 +32,7 @@ class IntroductionScreen extends StatelessWidget {
         ),
         child: ElevatedButton(
             onPressed: () {
-              Navigator.pushNamed(context, LoginScreen.routeName);
+              Navigator.pushNamed(context, OnboardingScreen.routeName);
             },
             style: ElevatedButton.styleFrom(
                 padding: EdgeInsets.symmetric(vertical: 12),
@@ -68,7 +74,7 @@ class IntroductionScreen extends StatelessWidget {
             Text(
               "introduction_description".tr(),
               style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                    color: Theme.of(context).primaryColor,
+                    color: Color(0xFF1C1C1C) ,
                   ),
             ),
             SizedBox(
