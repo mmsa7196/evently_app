@@ -4,9 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_c13_sun/firebase_options.dart';
 import 'package:todo_c13_sun/onboarding_Screen.dart';
+import 'package:todo_c13_sun/providers/create_events_provider.dart';
+import 'package:todo_c13_sun/providers/maps_provider.dart';
 import 'package:todo_c13_sun/providers/my_provider.dart';
 import 'package:todo_c13_sun/providers/user_provider.dart';
 import 'package:todo_c13_sun/screens/auth/forget_password.dart';
+import 'package:todo_c13_sun/screens/create_event/picker_location_screen.dart';
 import 'package:todo_c13_sun/screens/login/login_screen.dart';
 import 'package:todo_c13_sun/screens/auth/register.dart';
 import 'package:todo_c13_sun/screens/create_event/create_event.dart';
@@ -33,11 +36,17 @@ void main() async {
         ChangeNotifierProvider(
           create: (context) => UserProvider(),
         ),
+        ChangeNotifierProvider(
+            create: (context) => MapsProvider()
+          ),
+        ChangeNotifierProvider(
+            create: (context) => CreateEventsProvider(),
+        )
       ],
       child: EasyLocalization(
-        supportedLocales: [
-          const Locale('en'),
-          const Locale('ar'),
+        supportedLocales: const [
+          Locale('en'),
+          Locale('ar'),
         ],
         path: 'assets/translations',
         // <-- change the path of the translation files
@@ -69,12 +78,16 @@ class MyApp extends StatelessWidget {
       theme: theme.themeData,
       themeMode: provider.themeMode,
       routes: {
-        IntroductionScreen.routeName: (context) =>  IntroductionScreen(),
-        OnboardingScreen.routeName:(context)=> OnboardingScreen(),
+        IntroductionScreen.routeName: (context) =>  const IntroductionScreen(),
+        OnboardingScreen.routeName:(context)=> const OnboardingScreen(),
         LoginScreen.routeName: (context) => LoginScreen(),
         RegisterScreen.routeName: (context) => RegisterScreen(),
         HomeScreen.routeName: (context) => HomeScreen(),
         CreateEventScreen.routeName: (context) => CreateEventScreen(),
+        PickerLocationScreen.routeName:(context) {
+          var provider =ModalRoute.of(context)?.settings.arguments as CreateEventsProvider;
+          return PickerLocationScreen(provider: provider,);
+        },
         ForgetPassword.routeName: (context) => ForgetPassword(),
       },
     );

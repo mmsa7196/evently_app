@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:todo_c13_sun/firebase/firebase_manager.dart';
 import 'package:todo_c13_sun/models/task_model.dart';
 import 'package:todo_c13_sun/providers/create_events_provider.dart';
+import 'package:todo_c13_sun/screens/create_event/picker_location_screen.dart';
 import 'package:todo_c13_sun/widgets/event_category_item.dart';
 
 class CreateEventScreen extends StatelessWidget {
@@ -191,9 +192,7 @@ class CreateEventScreen extends StatelessWidget {
                   ),
                   OutlinedButton(
                     onPressed: () {
-
-
-
+                      Navigator.pushNamed(context, PickerLocationScreen.routeName,arguments: provider);
                     },
                     style: OutlinedButton.styleFrom(
                         foregroundColor: const Color(0xFF5669FF),
@@ -219,8 +218,9 @@ class CreateEventScreen extends StatelessWidget {
                         const SizedBox(
                           width: 8,
                         ),
-                        const Expanded(
-                          child: Text("Choose Event Location",
+                         Expanded(
+                          child: Text(
+                            provider.eventLocation==null?context.tr('Choose Event Location'):"Location${provider.eventLocation!.latitude}:${provider.eventLocation!.latitude}${provider.eventLocation!.longitude}",
                           ),
                         ),
                         const SizedBox(
@@ -234,7 +234,7 @@ class CreateEventScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                    height: 24,
+                    height: 16,
                   ),
                   Container(
                     width: double.infinity,
@@ -264,7 +264,8 @@ class CreateEventScreen extends StatelessWidget {
                               .textTheme
                               .titleMedium!
                               .copyWith(color: Colors.white),
-                        )),
+                        ),
+                    ),
                   ),
                 ],
               ),

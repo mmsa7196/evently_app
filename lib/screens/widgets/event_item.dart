@@ -75,23 +75,26 @@ class EventItem extends StatelessWidget {
                 ),
               ],
             ),
-            Container(
-              padding: EdgeInsets.all(10),
-              margin: EdgeInsets.only(left: 8, top: 8),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    DateTime.fromMillisecondsSinceEpoch(model.date)
-                        .toString()
-                        .substring(8, 10),
-                  ),
-                  Text(millisecondsToMonth(model.date)),
-                ],
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Container(
+                padding: EdgeInsets.all(10),
+                margin: EdgeInsets.only(left: 2, top:2),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      DateTime.fromMillisecondsSinceEpoch(model.date)
+                          .toString()
+                          .substring(8, 10),
+                    ),
+                    Text(millisecondsToMonth(model.date)),
+                  ],
+                ),
               ),
             ),
           ],

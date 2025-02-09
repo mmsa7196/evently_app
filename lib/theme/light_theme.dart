@@ -30,6 +30,8 @@ class LightTheme extends BaseTheme {
         ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: primaryColor,
+          foregroundColor: backgroundColor,
+          elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(35),
             side: BorderSide(color: Colors.white, width: 4),

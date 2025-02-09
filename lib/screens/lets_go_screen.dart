@@ -7,7 +7,6 @@ import 'package:todo_c13_sun/onboarding_Screen.dart';
 import 'package:todo_c13_sun/providers/my_provider.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
-import 'login/login_screen.dart';
 
 class IntroductionScreen extends StatefulWidget {
   static const String routeName = "IntroductionScreen";

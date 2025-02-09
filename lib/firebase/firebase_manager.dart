@@ -17,6 +17,7 @@ class FirebaseManager {
     );
   }
 
+
   static CollectionReference<UserModel> getUsersCollection() {
     return FirebaseFirestore.instance
         .collection("Users")
