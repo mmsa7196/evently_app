@@ -50,19 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAosCiauYxuvJrkmj-iNhKLsCxUPLUDW40',
-    appId: '1:324045917698:android:c2b36b1cd475e60512e11b',
-    messagingSenderId: '324045917698',
-    projectId: 'todo-c13-sunday',
-    storageBucket: 'todo-c13-sunday.firebasestorage.app',
+    apiKey: 'AIzaSyA4gAnwyVEn5SepNCUXWh2iu_0a2AuaKjs',
+    appId: '1:86526288471:android:aef9460d8385070c027912',
+    messagingSenderId: '86526288471',
+    projectId: 'evenly-app',
+    storageBucket: 'evenly-app.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDnukkDI5EBVfdayWNCpGN1aRHS_1tn9IQ',
-    appId: '1:324045917698:ios:ad246cb6cba6c23812e11b',
-    messagingSenderId: '324045917698',
-    projectId: 'todo-c13-sunday',
-    storageBucket: 'todo-c13-sunday.firebasestorage.app',
+    apiKey: 'AIzaSyD0yvcVB--Sb4cJv0S-iaDEjP_AbbLMMew',
+    appId: '1:86526288471:ios:533bdfbcbe02ec86027912',
+    messagingSenderId: '86526288471',
+    projectId: 'evenly-app',
+    storageBucket: 'evenly-app.firebasestorage.app',
     iosBundleId: 'com.example.todoC13Sun',
   );
+
 }

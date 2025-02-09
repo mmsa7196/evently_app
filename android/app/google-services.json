@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "324045917698",
-    "project_id": "todo-c13-sunday",
-    "storage_bucket": "todo-c13-sunday.firebasestorage.app"
+    "project_number": "86526288471",
+    "project_id": "evenly-app",
+    "storage_bucket": "evenly-app.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:324045917698:android:c2b36b1cd475e60512e11b",
+        "mobilesdk_app_id": "1:86526288471:android:aef9460d8385070c027912",
         "android_client_info": {
           "package_name": "com.example.todo_c13_sun"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAosCiauYxuvJrkmj-iNhKLsCxUPLUDW40"
+          "current_key": "AIzaSyA4gAnwyVEn5SepNCUXWh2iu_0a2AuaKjs"
         }
       ],
       "services": {
