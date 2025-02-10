@@ -64,7 +64,7 @@ class _MapTabState extends State<MapTab> {
                 ),
               ],
             ),
-            StreamBuilder<QuerySnapshot<TaskModel>>(
+            StreamBuilder<QuerySnapshot<EventModel>>(
               stream: FirebaseManager.getEvents(""),
               builder: (context, snapshot) {
                 return Padding(

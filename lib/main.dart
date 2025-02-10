@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_c13_sun/firebase_options.dart';
 import 'package:todo_c13_sun/onboarding_Screen.dart';
@@ -20,12 +21,17 @@ import 'package:todo_c13_sun/theme/light_theme.dart';
 import 'package:todo_c13_sun/theme/theme.dart';
 
 
+
 void main() async {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
+
   );
+  FlutterNativeSplash.remove();
 
   runApp(
     MultiProvider(
@@ -41,7 +47,8 @@ void main() async {
           ),
         ChangeNotifierProvider(
             create: (context) => CreateEventsProvider(),
-        )
+        ),
+
       ],
       child: EasyLocalization(
         supportedLocales: const [

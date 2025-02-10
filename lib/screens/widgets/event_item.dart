@@ -4,7 +4,7 @@ import 'package:todo_c13_sun/firebase/firebase_manager.dart';
 import 'package:todo_c13_sun/models/task_model.dart';
 
 class EventItem extends StatelessWidget {
-  TaskModel model;
+  EventModel model;
 
   EventItem({required this.model, super.key});
 

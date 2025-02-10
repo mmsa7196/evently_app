@@ -1,0 +1,17 @@
+flutter_native_splash:
+  color: "#F2FEFF"
+  image: assets/images/Splash Screen Light.png
+  branding: assets/images/branding Light mood.png
+  color_dark: "#101127"
+  image_dark: assets/images/Splash Screen Night.png
+  branding_dark: assets/images/branding Night mood.png
+
+  android_12:
+    image: assets/images/Splash Screen Light.png
+    icon_background_color: "#F2FEFF"
+    image_dark: assets/images/Splash Screen Night.png
+    icon_background_color_dark: "#101127"
+    branding: assets/images/branding Light mood.png
+    branding_dark: assets/images/branding Night mood.png
+
+  web: false

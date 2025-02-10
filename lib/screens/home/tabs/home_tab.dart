@@ -136,7 +136,7 @@ class _HomeTabState extends State<HomeTab> {
         )),
         toolbarHeight: 174,
       ),
-      body: StreamBuilder<QuerySnapshot<TaskModel>>(
+      body: StreamBuilder<QuerySnapshot<EventModel>>(
         stream: FirebaseManager.getEvents(eventsCategories[selectedCategory]),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {

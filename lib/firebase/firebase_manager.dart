@@ -2,14 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:todo_c13_sun/models/task_model.dart';
 import 'package:todo_c13_sun/models/user_model.dart';
-
+import 'package:google_sign_in/google_sign_in.dart';
 class FirebaseManager {
-  static CollectionReference<TaskModel> getTasksCollection() {
+  static CollectionReference<EventModel> getTasksCollection() {
     return FirebaseFirestore.instance
         .collection("Tasks")
-        .withConverter<TaskModel>(
+        .withConverter<EventModel>(
       fromFirestore: (snapshot, _) {
-        return TaskModel.fromJson(snapshot.data()!);
+        return EventModel.fromJson(snapshot.data()!);
       },
       toFirestore: (model, _) {
         return model.toJson();
@@ -31,7 +31,7 @@ class FirebaseManager {
     );
   }
 
-  static Future<void> addEvent(TaskModel task) {
+  static Future<void> addEvent(EventModel task) {
     var collection = getTasksCollection();
     var docRef = collection.doc();
     task.id = docRef.id;
@@ -44,7 +44,7 @@ class FirebaseManager {
     return docRef.set(user);
   }
 
-  static Stream<QuerySnapshot<TaskModel>> getEvents(String categoryName) {
+  static Stream<QuerySnapshot<EventModel>> getEvents(String categoryName) {
     var collection = getTasksCollection();
     if (categoryName == "All") {
       return collection
@@ -74,7 +74,7 @@ class FirebaseManager {
     return collection.doc(id).delete();
   }
 
-  static Future<void> updateTask(TaskModel model) {
+  static Future<void> updateTask(EventModel model) {
     var collection = getTasksCollection();
 
     return collection.doc(model.id).update(model.toJson());
@@ -114,6 +114,7 @@ class FirebaseManager {
       print(e);
     }
   }
+
 
 
 

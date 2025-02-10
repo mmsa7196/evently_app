@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_c13_sun/firebase/firebase_manager.dart';
+import 'package:todo_c13_sun/screens/auth/login_withe_google.dart';
 import 'package:todo_c13_sun/screens/login/login_screen.dart';
 
 class ProfileTab extends StatelessWidget {
@@ -10,7 +11,7 @@ class ProfileTab extends StatelessWidget {
     return Center(
       child: ElevatedButton(
           onPressed: () {
-            FirebaseManager.logout();
+            LoginWithGoogle.logout();
             Navigator.pushNamedAndRemoveUntil(
               context,
               LoginScreen.routeName,

@@ -240,7 +240,7 @@ class CreateEventScreen extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                         onPressed: () {
-                          TaskModel task = TaskModel(
+                          EventModel task = EventModel(
                               userId: FirebaseAuth.instance.currentUser!.uid,
                               date:
                                   provider.selectedDate.millisecondsSinceEpoch,

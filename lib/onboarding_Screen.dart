@@ -30,7 +30,7 @@ class OnboardingScreen extends StatelessWidget {
       globalHeader: Image.asset("assets/images/app_logo.png"),
       dotsFlex: 2,
       dotsDecorator: const DotsDecorator(color: Color(0xff1C1C1C),activeColor: Color(0xff5669FF)),
-      globalBackgroundColor:const Color(0xFFF2FEFF) ,
+      globalBackgroundColor: Color(0xFFF2FEFF) ,
       showDoneButton: true,
       onDone: () {
         Navigator.pushNamed(context,LoginScreen.routeName);

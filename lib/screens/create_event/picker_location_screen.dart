@@ -44,15 +44,15 @@ class _PickerLocationScreenState extends State<PickerLocationScreen> {
             ),
             ),
             Container(
-              padding: EdgeInsets.all(16),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.all(16),
+              decoration: const BoxDecoration(
                   color: Color(0xFF5669FF)
               ),
               alignment: Alignment.center,
               width: double.infinity,
               child:
               Text( context.tr('Tap on Location To Select'),
-                style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),
+                style: const TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.white,),
               ),
                 ),
           ],

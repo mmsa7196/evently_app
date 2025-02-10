@@ -1,4 +1,4 @@
-class TaskModel {
+class EventModel {
   String id;
   String title;
   String description;
@@ -9,7 +9,7 @@ class TaskModel {
   double latitude;
   double longitude;
 
-  TaskModel({
+  EventModel({
     this.id = "",
     required this.date,
     required this.title,
@@ -21,7 +21,7 @@ class TaskModel {
     this.longitude=0
   });
 
-  TaskModel.fromJson(Map<String, dynamic> json)
+  EventModel.fromJson(Map<String, dynamic> json)
       : this(
           id: json['id'],
           date: json['date'],

@@ -1,8 +1,14 @@
+
 import 'package:easy_localization/easy_localization.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_c13_sun/base.dart';
+import 'package:todo_c13_sun/firebase/firebase_manager.dart';
 import 'package:todo_c13_sun/providers/user_provider.dart';
+import 'package:todo_c13_sun/screens/auth/login_withe_google.dart';
 import 'package:todo_c13_sun/screens/auth/register.dart';
 import 'package:todo_c13_sun/screens/home/home.dart';
 import 'package:todo_c13_sun/screens/login/login_connector.dart';
@@ -11,6 +17,7 @@ import 'package:todo_c13_sun/screens/login/login_viewmodel.dart';
 import '../auth/forget_password.dart';
 
 class LoginScreen extends StatefulWidget {
+final _auth=LoginWithGoogle();
   static const String routeName = "Login";
 
   LoginScreen({super.key});
@@ -168,6 +175,35 @@ class _LoginScreenState extends BaseView<LoginScreen, LoginViewModel>
                       ),
                     ),
                   ],
+                ),
+                SizedBox(height:24 ,),
+                OutlinedButton(onPressed: ()async {
+                  LoginWithGoogle.signInWithGoogle().then((value) {
+                    Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+                  },);
+                },
+                  style: OutlinedButton.styleFrom(
+                    side: BorderSide(
+                      color: Theme.of(context).primaryColor,width: 2,
+                    ),
+                    shape:RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16)
+                    ) ,
+                    padding: EdgeInsets.all(16),
+                    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                    foregroundColor: Theme.of(context).primaryColor,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset("assets/images/Google Icon.png",height:32,width: 32,),
+                    SizedBox(width: 10,),
+                    Text("Login With Google".tr(),
+                    style: Theme.of(context).textTheme.titleMedium,
+                    )
+                  ],
+
+                ),
                 ),
               ],
             ),

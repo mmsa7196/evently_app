@@ -72,9 +72,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
             ),
             Text(
               "introduction_description".tr(),
-              style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                    color: Color(0xFF1C1C1C) ,
-                  ),
+              style: Theme.of(context).textTheme.titleSmall
             ),
             SizedBox(
               height: 28,
