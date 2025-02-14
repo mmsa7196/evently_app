@@ -3,6 +3,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginWithGoogle {
   final _auth = FirebaseAuth.instance;
+
   Future<UserCredential?> loginWitheGoogle() async {
     try {
       final googleUser = await GoogleSignIn().signIn();
@@ -12,6 +13,7 @@ class LoginWithGoogle {
       return await _auth.signInWithCredential(credential);
     } catch (e) {
       print(e.toString());
+      return null;
     }
   }
 

@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "86526288471",
-    "project_id": "evenly-app",
-    "storage_bucket": "evenly-app.firebasestorage.app"
+    "project_number": "970868910973",
+    "project_id": "evenly-app-fd815",
+    "storage_bucket": "evenly-app-fd815.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:86526288471:android:aef9460d8385070c027912",
+        "mobilesdk_app_id": "1:970868910973:android:0c49f9d11fe540b12fba14",
         "android_client_info": {
           "package_name": "com.example.todo_c13_sun"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyA4gAnwyVEn5SepNCUXWh2iu_0a2AuaKjs"
+          "current_key": "AIzaSyAZwPR4fgT-aAvZAuDkFw-WHkdXn84KWU0"
         }
       ],
       "services": {
