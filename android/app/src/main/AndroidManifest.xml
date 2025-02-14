@@ -4,9 +4,13 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <application
+        android:enableOnBackInvokedCallback="true"
         android:label="todo_c13_sun"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data
+            android:name="com.google.android.gms.auth.api.signin"
+            android:value="662274428122-blfsvg18ipss1r376io05l34qdf2t5k6.apps.googleusercontent.com"/>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBnpv4FfxLv0mTEpVhjjtTg0Yb9bSgPdo0"/>
