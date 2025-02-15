@@ -89,7 +89,7 @@ class MyApp extends StatelessWidget {
         OnboardingScreen.routeName:(context)=> const OnboardingScreen(),
         LoginScreen.routeName: (context) => LoginScreen(),
         RegisterScreen.routeName: (context) => RegisterScreen(),
-        HomeScreen.routeName: (context) => HomeScreen(),
+        HomeScreen.routeName: (context) => const HomeScreen(),
         CreateEventScreen.routeName: (context) => CreateEventScreen(),
         PickerLocationScreen.routeName:(context) {
           var provider =ModalRoute.of(context)?.settings.arguments as CreateEventsProvider;

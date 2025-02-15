@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:todo_c13_sun/providers/user_provider.dart';
 import 'package:todo_c13_sun/screens/create_event/create_event.dart';
 import 'package:todo_c13_sun/screens/home/tabs/home_tab.dart';
 import 'package:todo_c13_sun/screens/home/tabs/love_tab.dart';
@@ -58,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   List<Widget> tabs = [
-    HomeTab(),
+    const HomeTab(),
     MapTab(),
     const LoveTab(),
     const ProfileTab(),

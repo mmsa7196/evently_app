@@ -9,7 +9,7 @@ import 'package:todo_c13_sun/providers/user_provider.dart';
 import '../../widgets/event_item.dart';
 
 class HomeTab extends StatefulWidget {
-  HomeTab({super.key});
+  const HomeTab({super.key});
 
   @override
   State<HomeTab> createState() => _HomeTabState();
