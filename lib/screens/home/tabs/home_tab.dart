@@ -36,7 +36,7 @@ class _HomeTabState extends State<HomeTab> {
 
     return Scaffold(
       appBar: AppBar(
-        leading: SizedBox(),
+        leading: const SizedBox(),
         leadingWidth: 0,
         centerTitle: false,
         title: Column(
@@ -52,18 +52,18 @@ class _HomeTabState extends State<HomeTab> {
             Text(
               FirebaseAuth.instance.currentUser?.displayName
                   ?.toUpperCase() ?? "",
-              style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold,color: Colors.white),
+              style: const TextStyle(fontSize: 24,fontWeight: FontWeight.bold,color: Colors.white),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             Row(
               children: [
-                Icon(
+                const Icon(
                   Icons.location_on,
                   color: Colors.white,
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 8,
                 ),
                 Text(
@@ -75,13 +75,13 @@ class _HomeTabState extends State<HomeTab> {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             Container(
               height: 40,
               child: ListView.separated(
-                separatorBuilder: (context, index) => SizedBox(
+                separatorBuilder: (context, index) => const SizedBox(
                   width: 12,
                 ),
                 itemBuilder: (context, index) {
@@ -92,7 +92,7 @@ class _HomeTabState extends State<HomeTab> {
                     },
                     child: Container(
                       alignment: Alignment.center,
-                      padding: EdgeInsets.symmetric(horizontal: 16),
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(18),
                           border: Border.all(color: Colors.white),
@@ -117,10 +117,10 @@ class _HomeTabState extends State<HomeTab> {
           ],
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.sunny)),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.sunny)),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 4),
-            margin: EdgeInsets.all(8),
+            padding: const EdgeInsets.symmetric(horizontal: 4),
+            margin: const EdgeInsets.all(8),
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(4)),
             child: Text(
@@ -129,7 +129,7 @@ class _HomeTabState extends State<HomeTab> {
             ),
           ),
         ],
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
           bottomRight: Radius.circular(24),
           bottomLeft: Radius.circular(24),
@@ -140,13 +140,13 @@ class _HomeTabState extends State<HomeTab> {
         stream: FirebaseManager.getEvents(eventsCategories[selectedCategory]),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return const Center(child: CircularProgressIndicator());
           }
           if (snapshot.hasError) {
-            return Center(child: Text("Something went wrong"));
+            return const Center(child: Text("Something went wrong"));
           }
           if (snapshot.data!.docs.isEmpty) {
-            return Center(child: Text("No Tasks"));
+            return const Center(child: Text("No Tasks"));
           }
           return Padding(
             padding: const EdgeInsets.all(8.0),
@@ -157,7 +157,7 @@ class _HomeTabState extends State<HomeTab> {
                   );
                 },
                 separatorBuilder: (context, index) {
-                  return SizedBox(
+                  return const SizedBox(
                     height: 4,
                   );
                 },
