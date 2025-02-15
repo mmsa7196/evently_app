@@ -47,7 +47,9 @@ class DarkTheme extends BaseTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(35),
             side: BorderSide(color: Colors.white, width: 4),
+
           ),
+
         ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: backgroundColor,

@@ -26,6 +26,7 @@ dependencies:
   google_maps_flutter: ^2.10.0
   flutter_native_splash: ^2.4.4
   google_sign_in:
+  shared_preferences: ^2.5.2
 
 dev_dependencies:
   flutter_test:

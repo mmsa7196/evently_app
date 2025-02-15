@@ -46,7 +46,7 @@ class _MapTabState extends State<MapTab> {
             borderRadius: BorderRadius.circular(16),
           ),
           elevation: 0,
-          child: const Icon(Icons.gps_fixed),
+          child:  Icon(Icons.gps_fixed,),
         ),
         body: Stack(
           children: [

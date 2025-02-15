@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuth;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_c13_sun/firebase/firebase_manager.dart';
@@ -49,10 +50,9 @@ class _HomeTabState extends State<HomeTab> {
                   .copyWith(color: Colors.white, fontSize: 17),
             ),
             Text(
-              userProvider.userModel?.name ?? "null",
-              style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    color: Colors.white,
-                  ),
+              FirebaseAuth.instance.currentUser?.displayName
+                  ?.toUpperCase() ?? "",
+              style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold,color: Colors.white),
             ),
             SizedBox(
               height: 8,

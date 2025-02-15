@@ -202,9 +202,9 @@ class _LoginScreenState extends BaseView<LoginScreen, LoginViewModel>
                     style: Theme.of(context).textTheme.titleMedium,
                     )
                   ],
+                ),
+                ),
 
-                ),
-                ),
               ],
             ),
           ),
