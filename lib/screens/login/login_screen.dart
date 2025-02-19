@@ -179,7 +179,7 @@ class _LoginScreenState extends BaseView<LoginScreen, LoginViewModel>
                     ),
                   ],
                 ),
-                SizedBox(height:24 ,),
+                const SizedBox(height:24 ,),
                 OutlinedButton(onPressed: ()async {
                   LoginWithGoogle.signInWithGoogle().then((value) {
                     Navigator.pushReplacementNamed(context, HomeScreen.routeName);
@@ -192,7 +192,7 @@ class _LoginScreenState extends BaseView<LoginScreen, LoginViewModel>
                     shape:RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16)
                     ) ,
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                     foregroundColor: Theme.of(context).primaryColor,
                   ),
@@ -200,14 +200,14 @@ class _LoginScreenState extends BaseView<LoginScreen, LoginViewModel>
                     mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset("assets/images/Google Icon.png",height:32,width: 32,),
-                    SizedBox(width: 10,),
+                    const SizedBox(width: 10,),
                     Text("Login With Google".tr(),
                     style: Theme.of(context).textTheme.titleMedium,
                     )
                   ],
                 ),
                 ),
-                SizedBox(height: 24,),
+                const SizedBox(height: 24,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -224,7 +224,7 @@ class _LoginScreenState extends BaseView<LoginScreen, LoginViewModel>
                         Image.asset("assets/images/AR.png"),
                       ],
                       height: 40,
-                      indicatorSize: Size(40, 40),
+                      indicatorSize: const Size(40, 40),
                       style: ToggleStyle(
                         backgroundColor: Colors.transparent,
                         indicatorColor: Theme.of(context).primaryColor,

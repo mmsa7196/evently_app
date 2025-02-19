@@ -26,9 +26,9 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
             Navigator.pushNamed(context, OnboardingScreen.routeName);
           },
           style: ElevatedButton.styleFrom(
-            padding: EdgeInsets.symmetric(vertical: 12),
+            padding: const EdgeInsets.symmetric(vertical: 12),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-            backgroundColor: Color(0xFF5669FF),
+            backgroundColor: const Color(0xFF5669FF),
           ),
           child: Text(
             "lets_start".tr(),
@@ -50,17 +50,17 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
               width: double.infinity,
               fit: BoxFit.cover,
             ),
-            SizedBox(height: 28),
+            const SizedBox(height: 28),
             Text(
               context.tr('introduction_title'),
               style: Theme.of(context).textTheme.titleMedium,
             ),
-            SizedBox(height: 28),
+            const SizedBox(height: 28),
             Text(
               "introduction_description".tr(),
               style: Theme.of(context).textTheme.titleSmall,
             ),
-            SizedBox(height: 28),
+            const SizedBox(height: 28),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -81,7 +81,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                     Image.asset("assets/images/AR.png"),
                   ],
                   height: 40,
-                  indicatorSize: Size(40, 40),
+                  indicatorSize: const Size(40, 40),
                   style: ToggleStyle(
                     backgroundColor: Colors.transparent,
                     indicatorColor: Theme.of(context).primaryColor,
@@ -90,7 +90,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                 ),
               ], // en >> 0 , ar >> 1
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -109,7 +109,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                     Image.asset("assets/images/Moon.png", color: provider.themeMode == ThemeMode.dark ? Colors.white : null),
                   ],
                   height: 40,
-                  indicatorSize: Size(40, 40),
+                  indicatorSize: const Size(40, 40),
                   style: ToggleStyle(
                     backgroundColor: Colors.transparent,
                     indicatorColor: Theme.of(context).primaryColor,
@@ -118,7 +118,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
           ],
         ),
       ),

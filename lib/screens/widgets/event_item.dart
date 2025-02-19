@@ -42,8 +42,8 @@ class EventItem extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.all(16),
-                    padding: EdgeInsets.all(16),
+                    margin: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: Theme.of(context).colorScheme.background,
                       borderRadius: BorderRadius.circular(8),
@@ -57,7 +57,7 @@ class EventItem extends StatelessWidget {
                               .titleMedium!
                               .copyWith(color: Colors.black),
                         ),
-                        Spacer(),
+                        const Spacer(),
                         InkWell(
                           onTap: () {
                             FirebaseManager.deleteTask(model.id);
@@ -86,14 +86,14 @@ class EventItem extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
-                  padding: EdgeInsets.all(8),
-                  margin: EdgeInsets.only(left: 2, top:2),
+                  padding: const EdgeInsets.all(8),
+                  margin: const EdgeInsets.only(left: 2, top:2),
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.background,
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Padding(
-                    padding:  EdgeInsets.all(8.0),
+                    padding:  const EdgeInsets.all(8.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [

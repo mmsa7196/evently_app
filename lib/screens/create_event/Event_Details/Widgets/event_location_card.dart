@@ -22,7 +22,7 @@ class _EventLocationCardState extends State<EventLocationCard> {
 
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: Theme.of(context).primaryColor, width: 2) ,
@@ -30,14 +30,14 @@ class _EventLocationCardState extends State<EventLocationCard> {
       child: Row(
         children: [
           Container(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: Theme.of(context).primaryColor,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Icon(Icons.gps_fixed, color: Theme.of(context).scaffoldBackgroundColor,size: 32,),
           ),
-          SizedBox(width: 8,),
+          const SizedBox(width: 8,),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

@@ -30,7 +30,7 @@ class OnboardingScreen extends StatelessWidget {
     return IntroductionScreen(
       globalHeader: Image.asset("assets/images/app_logo.png"),
       dotsFlex: 2,
-      dotsDecorator:  DotsDecorator(color: Color(0xff1C1C1C),activeColor: Color(0xff5669FF)),
+      dotsDecorator:  const DotsDecorator(color: Color(0xff1C1C1C),activeColor: Color(0xff5669FF)),
       globalBackgroundColor: theme.scaffoldBackgroundColor ,
       showDoneButton: true,
       onDone: () {

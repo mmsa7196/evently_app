@@ -10,7 +10,7 @@ class DateTimeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(date);
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: Theme.of(context).primaryColor, width: 2) ,
@@ -18,14 +18,14 @@ class DateTimeCard extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: Theme.of(context).primaryColor,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Icon(Icons.calendar_month, color: Theme.of(context).scaffoldBackgroundColor,size: 32,),
           ),
-          SizedBox(width: 8,),
+          const SizedBox(width: 8,),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

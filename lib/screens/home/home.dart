@@ -44,14 +44,14 @@ class _HomeScreenState extends State<HomeScreen> {
             setState(() {});
           },
           items:  [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home".tr()),
+            BottomNavigationBarItem(icon: const Icon(Icons.home), label: "Home".tr()),
             BottomNavigationBarItem(
-                icon: Icon(
+                icon: const Icon(
                   Icons.map,
                 ),
                 label: "Map".tr()),
-            BottomNavigationBarItem(icon: Icon(Icons.favorite), label: "Love".tr()),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile".tr()),
+            BottomNavigationBarItem(icon: const Icon(Icons.favorite), label: "Love".tr()),
+            BottomNavigationBarItem(icon: const Icon(Icons.person), label: "Profile".tr()),
           ]),
       body: tabs[selectedIndex],
     );

@@ -80,7 +80,7 @@ class _EventDetailsState extends State<EventDetails> {
           height: 16,
         ),
         EventLocationCard(latitude: widget.eventModel.latitude ,longitude:widget.eventModel.longitude ,),
-        SizedBox(
+        const SizedBox(
           height: 16,
         ),
         Container(
@@ -104,7 +104,7 @@ class _EventDetailsState extends State<EventDetails> {
               zoomControlsEnabled: false,
               markers: {
                 Marker(
-                  markerId: MarkerId("1"),
+                  markerId: const MarkerId("1"),
                   position: LatLng(
                       widget.eventModel.latitude, widget.eventModel.longitude),
                 )
@@ -137,7 +137,7 @@ class _EventDetailsState extends State<EventDetails> {
     showDialog(
         context: context,
         builder: (context) {
-          return AlertDialog(
+          return const AlertDialog(
             backgroundColor: Colors.transparent,
             title: Center(child: CircularProgressIndicator()),
           );

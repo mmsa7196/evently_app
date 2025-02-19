@@ -96,7 +96,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                     style: Theme.of(context).textTheme.bodyMedium,
                     decoration:  InputDecoration(
                       hintText: "Event Title".tr(),
-                      prefixIcon: Icon(Icons.edit_note),
+                      prefixIcon: const Icon(Icons.edit_note),
                     ),
                   ),
                   const SizedBox(
