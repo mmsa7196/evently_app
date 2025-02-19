@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 abstract class BaseConnector {
@@ -32,14 +33,14 @@ abstract class BaseView<T extends StatefulWidget, VM extends BaseViewModel>
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Something went wrong"),
+        title:  Text("Something went wrong".tr()),
         content: Text(message ?? ""),
         actions: [
           ElevatedButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text("OK"))
+              child:  Text("OK".tr()))
         ],
       ),
     );
@@ -62,14 +63,14 @@ abstract class BaseView<T extends StatefulWidget, VM extends BaseViewModel>
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text("Successfully"),
+        title:  Text("Successfully".tr()),
         content: Text(message ?? ""),
         actions: [
           ElevatedButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text("OK"))
+              child:  Text("OK".tr()))
         ],
       ),
     );

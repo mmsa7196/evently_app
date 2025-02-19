@@ -1,5 +1,4 @@
 
-import 'dart:ffi';
 
 import 'package:cloud_firestore/cloud_firestore.dart' show CollectionReference, FirebaseFirestore;
 import 'package:easy_localization/easy_localization.dart';

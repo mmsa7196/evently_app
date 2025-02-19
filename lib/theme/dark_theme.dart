@@ -39,7 +39,7 @@ class DarkTheme extends BaseTheme {
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
-            borderSide: BorderSide(color: Colors.red, width: 2),
+            borderSide: const BorderSide(color: Colors.red, width: 2),
           ),
         ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
@@ -47,7 +47,7 @@ class DarkTheme extends BaseTheme {
           backgroundColor: backgroundColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(35),
-            side: BorderSide(color: Colors.white, width: 4),
+            side: const BorderSide(color: Colors.white, width: 4),
 
           ),
 

@@ -1,4 +1,5 @@
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -13,14 +14,14 @@ class CreateEventsProvider extends ChangeNotifier {
   var titleController = TextEditingController();
   var descriptionController = TextEditingController();
   List<String> eventsCategories = [
-    "birthday",
-    "book_club",
-    "eating",
-    "meeting",
-    "exhibtion",
-    "holiday",
-    "sport",
-    "workshop",
+    "birthday".tr(),
+    "book_club".tr(),
+    "eating".tr(),
+    "meeting".tr(),
+    "exhibtion".tr(),
+    "holiday".tr(),
+    "sport".tr(),
+    "workshop".tr(),
   ];
   var selectedDate = DateTime.now();
 
@@ -96,7 +97,7 @@ class CreateEventsProvider extends ChangeNotifier {
     );
     markers = {
       Marker(
-        markerId: MarkerId("2"),
+        markerId: const MarkerId("2"),
         position:
         LatLng(locationData.latitude ?? 0, locationData.longitude ?? 0),
       )

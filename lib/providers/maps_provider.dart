@@ -39,7 +39,7 @@ class MapsProvider extends ChangeNotifier {
     );
     markers = {
       Marker(
-        markerId: MarkerId("2"),
+        markerId: const MarkerId("2"),
         position:
             LatLng(locationData.latitude ?? 0, locationData.longitude ?? 0),
       )

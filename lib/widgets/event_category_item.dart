@@ -12,7 +12,7 @@ class EventCategoryItem extends StatelessWidget {
     return Container(
       height: 40,
       alignment: Alignment.center,
-      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       decoration: BoxDecoration(
         border: Border.all(color: Theme.of(context).primaryColor),
         color: isSelected ? Theme.of(context).primaryColor : Colors.transparent,
