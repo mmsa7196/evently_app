@@ -41,7 +41,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
         return Scaffold(
           appBar: AppBar(
             iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
-            title: Text(provider.eventModel == null?"Update Event":"Add Event",
+            title: Text(provider.eventModel == null?"Update Event".tr():"Add Event".tr(),
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -110,8 +110,8 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                     controller: descriptionController,
                     style: Theme.of(context).textTheme.titleSmall,
                     maxLines: 4,
-                    decoration: const InputDecoration(
-                      hintText: "Make thoughtful choices to balance your decisions carefully.",
+                    decoration:  InputDecoration(
+                      hintText: "Make thoughtful choices to balance your decisions carefully.".tr(),
                     ),
                   ),
                   const SizedBox(
@@ -122,7 +122,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                       const Icon(Icons.calendar_month_outlined),
                       const SizedBox(width: 10,),
                       Text(
-                        "Select Date",
+                        "Select Date".tr(),
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                       const Spacer(),
@@ -153,7 +153,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                       const Icon(Icons.timer_outlined),
                       const SizedBox(width: 10,),
                       Text(
-                        "Event Time",
+                        "Event Time".tr(),
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                       const Spacer(),
@@ -283,7 +283,7 @@ class _CreateEventScreenState extends State<CreateEventScreen> {
                                 borderRadius: BorderRadius.circular(12)),
                             backgroundColor: const Color(0xFF5669FF)),
                       child: Text(
-                        provider.eventModel != null?"Update Event":"Add Event",
+                        provider.eventModel != null?"Update Event".tr():"Add Event".tr(),
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 16,

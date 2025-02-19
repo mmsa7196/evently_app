@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_c13_sun/screens/create_event/create_event.dart';
 import 'package:todo_c13_sun/screens/home/tabs/home_tab.dart';
@@ -42,15 +43,15 @@ class _HomeScreenState extends State<HomeScreen> {
             selectedIndex = value;
             setState(() {});
           },
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          items:  [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home".tr()),
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.map,
                 ),
-                label: "Map"),
-            BottomNavigationBarItem(icon: Icon(Icons.favorite), label: "Love"),
-            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+                label: "Map".tr()),
+            BottomNavigationBarItem(icon: Icon(Icons.favorite), label: "Love".tr()),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile".tr()),
           ]),
       body: tabs[selectedIndex],
     );

@@ -2,7 +2,7 @@
   "introduction_title": "خصص تجربتك",
   "introduction_description":"اختر الموضوع واللغة المفضلين لك لتبدأ بتجربة مريحة ومُصممة خصيصًا لتناسب أسلوبك." ,
   "language": "اللغة",
-  "theme": "الموضوع",
+  "theme": "المظهر",
   "lets_start": "لنبدأ",
   "Find Events That Inspire You": "ابحث عن الفعاليات التي تلهمك",
   "Effortless Event Planning": "تخطيط الفعاليات بكل سهولة",
@@ -37,7 +37,7 @@
   "Theme": "المظهر",
   "Dark": "داكن",
   "Light": "فاتح",
-  "Welcome Back": "مرحبًا بعودتك",
+  "Welcome Back ✨": "مرحبًا بعودتك",
   "Cairo , Egypt": "القاهرة، مصر",
   "All": "الكل",
   "Birthday": "تاريخ الميلاد",
@@ -59,5 +59,13 @@
   "Lorem ipsum dolor sit amet consectetur. Vulputate eleifend suscipit eget neque senectus a. Nulla at non malesuada odio duis lectus amet nisi sit. Risus hac enim maecenas auctor et. At cras massa diam porta facilisi lacus purus. Iaculis eget quis ut amet. Sit ac malesuada nisi quis  feugiat.": "لوريم إيبسوم دولور سيت أميت، كونسيكتتور. تعزيز مرونة الدعم مع التقدم في السن. لا شيء عند غياب التكيف مع الكراهية، حيث يجلس المرء في المحاضرة. الضحك هنا هو الأساس في تشكيل السلطة وما شابه ذلك. عند التصادم، تكون الكتلة بوابة تسهل الوصول إلى البحيرة النقية. التشابك يتبع الرغبة في الاحتضان. الجلوس مع التكيف ليس مجرد خيار، بل هو تحسين",
   "EventDetails": "تفاصيل الحدث",
   "We Are Going To Play Football": "نحن ذاهبون للعب كرة القدم",
-  "Successfully": "بنجاح"
+  "Successfully": "بنجاح",
+  "Make thoughtful choices to balance your decisions carefully": "اتخذ خيارات مدروسة لتحقيق توازن دقيق في قراراتك",
+  "Add Event": "أضف حدثًا",
+  "Update Event": "تحديث الحدث",
+  "Home": "الرئيسية",
+  "Map": "الخريطة",
+  "Love": "المفضلة",
+  "Profile": "الملف الشخصي",
+  "Tap on Location To Select": "اضغط على الموقع للاختيار"
 }
