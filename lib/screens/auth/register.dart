@@ -1,9 +1,12 @@
+import 'package:animated_toggle_switch/animated_toggle_switch.dart' show AnimatedToggleSwitch, ToggleStyle;
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart' show Provider;
 import 'package:todo_c13_sun/firebase/firebase_manager.dart';
 import 'package:todo_c13_sun/screens/login/login_screen.dart';
 
-import '../home/home.dart';
-import '../lets_go_screen.dart';
+import '../../providers/my_provider.dart' show MyProvider;
+
 
 class RegisterScreen extends StatelessWidget {
   static const String routeName = "registerScreen";
@@ -18,6 +21,7 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var myProvider = Provider.of<MyProvider>(context);
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -41,14 +45,14 @@ class RegisterScreen extends StatelessWidget {
                   controller: nameController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return "Name is Required";
+                      return "Name is Required".tr();
                     }
                     return null;
                   },
                   style: Theme.of(context).textTheme.bodyMedium,
-                  decoration: const InputDecoration(
-                    hintText: "Name",
-                    prefixIcon: Icon(Icons.person),
+                  decoration:  InputDecoration(
+                    hintText: "Name".tr(),
+                    prefixIcon: const Icon(Icons.person),
                   ),
                 ),
                 const SizedBox(
@@ -58,21 +62,21 @@ class RegisterScreen extends StatelessWidget {
                   controller: emailController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return "email is Required";
+                      return "Email is Required".tr();
                     }
                     final bool emailValid = RegExp(
                             r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[gmail]+\.[com]+")
                         .hasMatch(value);
 
                     if (emailValid == false) {
-                      return "Email Not valid";
+                      return "Email Not valid".tr();
                     }
                     return null;
                   },
                   style: Theme.of(context).textTheme.bodyMedium,
-                  decoration: const InputDecoration(
-                    hintText: "Email",
-                    prefixIcon: Icon(Icons.email),
+                  decoration:  InputDecoration(
+                    hintText: "Email".tr(),
+                    prefixIcon: const Icon(Icons.email),
                   ),
                 ),
                 const SizedBox(
@@ -82,18 +86,18 @@ class RegisterScreen extends StatelessWidget {
                   controller: passwordController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return "Password is Required";
+                      return "Password is Required".tr();
                     }
                     if (value.length < 6) {
-                      return "Password should be at least 6 Char";
+                      return "Password should be at least 6 Char".tr();
                     }
                     return null;
                   },
                   style: Theme.of(context).textTheme.bodyMedium,
-                  decoration: const InputDecoration(
-                    hintText: "Password",
-                    prefixIcon: Icon(Icons.lock),
-                    suffixIcon: Icon(Icons.visibility),
+                  decoration:  InputDecoration(
+                    hintText: "Password".tr(),
+                    prefixIcon: const Icon(Icons.lock),
+                    suffixIcon: const Icon(Icons.visibility),
                   ),
                 ),
                 const SizedBox(
@@ -103,21 +107,21 @@ class RegisterScreen extends StatelessWidget {
                   controller: rePasswordController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return "RePassword is Required";
+                      return "RePassword Is Required".tr();
                     }
                     if (value.length < 6) {
-                      return "Password should be at least 6 Char";
+                      return "Password should Be at Least 6 Char".tr();
                     }
                     if (value != passwordController.text) {
-                      return "Password doesn't match";
+                      return "Password Doesn't Match".tr();
                     }
                     return null;
                   },
                   style: Theme.of(context).textTheme.bodyMedium,
-                  decoration: const InputDecoration(
-                    hintText: "rePassword",
-                    prefixIcon: Icon(Icons.lock),
-                    suffixIcon: Icon(Icons.visibility_off_outlined),
+                  decoration:  InputDecoration(
+                    hintText: "Re Password".tr(),
+                    prefixIcon: const Icon(Icons.lock),
+                    suffixIcon: const Icon(Icons.visibility_off_outlined),
                   ),
                 ),
                 const SizedBox(
@@ -153,14 +157,15 @@ class RegisterScreen extends StatelessWidget {
                             showDialog(
                               context: context,
                               builder: (context) => AlertDialog(
-                                title: const Text("Something went wrong"),
+                                title:  Text("Something Went Wrong".tr()),
                                 content: Text(message),
                                 actions: [
                                   ElevatedButton(
                                       onPressed: () {
                                         Navigator.pop(context);
                                       },
-                                      child: Text("OK"))
+                                      child:  Text("OK".tr()),
+                                  )
                                 ],
                               ),
                             );
@@ -174,12 +179,13 @@ class RegisterScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(12)),
                         backgroundColor: const Color(0xFF5669FF)),
                     child: Text(
-                      "Create Account",
+                      "Create Account".tr(),
                       style: Theme.of(context)
                           .textTheme
                           .titleMedium!
                           .copyWith(color: Colors.white),
-                    )),
+                    ),
+                ),
                 const SizedBox(
                   height: 24,
                 ),
@@ -192,7 +198,7 @@ class RegisterScreen extends StatelessWidget {
                     TextSpan(
                       children: [
                         TextSpan(
-                          text: "Already Have Account? ",
+                          text: "Already Have Account ? ".tr(),
                           style:
                               Theme.of(context).textTheme.bodySmall!.copyWith(
                                     fontSize: 16,
@@ -200,7 +206,7 @@ class RegisterScreen extends StatelessWidget {
                                   ),
                         ),
                         TextSpan(
-                            text: "Login",
+                            text: "Login".tr(),
                             style: Theme.of(context)
                                 .textTheme
                                 .titleSmall!
@@ -210,6 +216,32 @@ class RegisterScreen extends StatelessWidget {
                       ],
                     ),
                   ),
+                ),
+                const SizedBox(height: 24,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AnimatedToggleSwitch<String>.rolling(
+                      current: myProvider.currentLanguage,
+                      values: const ["en", "ar"],
+                      onChanged: (value) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
+                          myProvider.changeLanguage(context, value);
+                        });
+                      },
+                      iconList: [
+                        Image.asset("assets/images/En.png"),
+                        Image.asset("assets/images/AR.png"),
+                      ],
+                      height: 40,
+                      indicatorSize: const Size(40, 40),
+                      style: ToggleStyle(
+                        backgroundColor: Colors.transparent,
+                        indicatorColor: Theme.of(context).primaryColor,
+                        borderColor: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart' show FirebaseAuth;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,21 +20,20 @@ class _HomeTabState extends State<HomeTab> {
   int selectedCategory = 0;
 
   List<String> eventsCategories = [
-    "All",
-    "birthday",
-    "book_club",
-    "eating",
-    "meeting",
-    "exhibtion",
-    "holiday",
-    "sport",
-    "workshop",
+    "All".tr(),
+    "Birthday".tr(),
+    "Book_club".tr(),
+    "Eating".tr(),
+    "Meeting".tr(),
+    "Exhibtion".tr(),
+    "Holiday".tr(),
+    "Sport".tr(),
+    "Workshop".tr(),
   ];
 
   @override
   Widget build(BuildContext context) {
     var userProvider = Provider.of<UserProvider>(context);
-
     return Scaffold(
       appBar: AppBar(
         leading: const SizedBox(),
@@ -43,7 +43,7 @@ class _HomeTabState extends State<HomeTab> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Welcome Back ✨",
+              "Welcome Back ✨".tr(),
               style: Theme.of(context)
                   .textTheme
                   .bodyLarge!
@@ -67,7 +67,7 @@ class _HomeTabState extends State<HomeTab> {
                   width: 8,
                 ),
                 Text(
-                  "Cairo , Egypt",
+                  "Cairo , Egypt".tr(),
                   style: Theme.of(context)
                       .textTheme
                       .bodyLarge!
@@ -92,9 +92,9 @@ class _HomeTabState extends State<HomeTab> {
                     },
                     child: Container(
                       alignment: Alignment.center,
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      padding: const EdgeInsets.all(8),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(18),
+                          borderRadius: BorderRadius.circular(12),
                           border: Border.all(color: Colors.white),
                           color: selectedCategory == index
                               ? Colors.white
@@ -124,7 +124,7 @@ class _HomeTabState extends State<HomeTab> {
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(4)),
             child: Text(
-              "EN",
+              "EN".tr(),
               style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
@@ -133,8 +133,9 @@ class _HomeTabState extends State<HomeTab> {
             borderRadius: BorderRadius.only(
           bottomRight: Radius.circular(24),
           bottomLeft: Radius.circular(24),
-        )),
-        toolbarHeight: 174,
+        ),
+        ),
+        toolbarHeight: 160,
       ),
       body: StreamBuilder<QuerySnapshot<EventModel>>(
         stream: FirebaseManager.getEvents(eventsCategories[selectedCategory]),
@@ -143,13 +144,13 @@ class _HomeTabState extends State<HomeTab> {
             return const Center(child: CircularProgressIndicator());
           }
           if (snapshot.hasError) {
-            return const Center(child: Text("Something went wrong"));
+            return  Center(child: Text("Something went wrong".tr()));
           }
           if (snapshot.data!.docs.isEmpty) {
-            return const Center(child: Text("No Tasks"));
+            return  Center(child: Text("No Tasks".tr()));
           }
           return Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(16),
             child: ListView.separated(
                 itemBuilder: (context, index) {
                   return EventItem(

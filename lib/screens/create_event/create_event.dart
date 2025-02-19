@@ -8,26 +8,40 @@ import 'package:todo_c13_sun/providers/create_events_provider.dart';
 import 'package:todo_c13_sun/screens/create_event/picker_location_screen.dart';
 import 'package:todo_c13_sun/widgets/event_category_item.dart';
 
-class CreateEventScreen extends StatelessWidget {
+class CreateEventScreen extends StatefulWidget {
   static const String routeName = "CreateEvent";
+  final EventModel? event;
+  CreateEventScreen({required this.event, super.key});
 
-  CreateEventScreen({super.key});
+  @override
+  State<CreateEventScreen> createState() => _CreateEventScreenState();
+}
+
+class _CreateEventScreenState extends State<CreateEventScreen> {
+  CreateEventsProvider eventsProvider=CreateEventsProvider();
+  @override
+  void initState() {
+    super.initState();
+    if(widget.event!=null){
+      eventsProvider.initData(widget.event!);
+    }
+  }
 
   var titleController = TextEditingController();
   var descriptionController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => CreateEventsProvider(),
+    return ChangeNotifierProvider.value(
+      value: eventsProvider,
       builder: (context, child) {
         var provider = Provider.of<CreateEventsProvider>(context);
+        var myProvider = Provider.of<CreateEventsProvider>(context);
 
         return Scaffold(
           appBar: AppBar(
             iconTheme: IconThemeData(color: Theme.of(context).primaryColor),
-            title: Text(
-              "Create Event",
+            title: Text(provider.eventModel == null?"Update Event":"Add Event",
               style: Theme.of(context).textTheme.bodyMedium,
             ),
             backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -73,22 +87,22 @@ class CreateEventScreen extends StatelessWidget {
                   const SizedBox(
                     height: 16,
                   ),
-                  Row(children: [Text("Title",style: Theme.of(context).textTheme.titleSmall,)],),
+                  Row(children: [Text("Title".tr(),style: Theme.of(context).textTheme.titleSmall,)],),
                   const SizedBox(
                     height: 16,
                   ),
                   TextField(
                     controller: titleController,
                     style: Theme.of(context).textTheme.bodyMedium,
-                    decoration: const InputDecoration(
-                      hintText: "Event Title",
+                    decoration:  InputDecoration(
+                      hintText: "Event Title".tr(),
                       prefixIcon: Icon(Icons.edit_note),
                     ),
                   ),
                   const SizedBox(
                     height: 16,
                   ),
-                  Row(children: [Text("Description",style: Theme.of(context).textTheme.titleSmall,)],),
+                  Row(children: [Text("Description".tr(),style: Theme.of(context).textTheme.titleSmall,)],),
                   const SizedBox(
                     height: 16,
                   ),
@@ -154,11 +168,11 @@ class CreateEventScreen extends StatelessWidget {
                           );
                           if (timeOfDay != null) {
                             final newDateTime = DateTime(
-                              provider.selectedDate.year, // don't changed
-                              provider.selectedDate.month, // don't changed
-                              provider.selectedDate.day, // don't changed
-                              timeOfDay.hour, // changed
-                              timeOfDay.minute, // changed
+                              provider.selectedDate.year,
+                              provider.selectedDate.month,
+                              provider.selectedDate.day,
+                              timeOfDay.hour,
+                              timeOfDay.minute,
                             );
                             provider.changeSelectedDate(newDateTime);
                           }
@@ -246,7 +260,17 @@ class CreateEventScreen extends StatelessWidget {
                                   provider.selectedDate.millisecondsSinceEpoch,
                               title: titleController.text,
                               category: provider.imageName,
-                              description: descriptionController.text);
+                              description: descriptionController.text,
+                            time: true,
+                            image: "",
+                          );
+                          if(provider.eventModel!=null){
+                            provider.addEvent();
+                            Navigator.pop(context);
+                            return;
+                          }else{
+                            provider.ubdateEvent();
+                          }
                           FirebaseManager.addEvent(task).then(
                             (value) {
                               Navigator.pop(context);
@@ -258,13 +282,14 @@ class CreateEventScreen extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12)),
                             backgroundColor: const Color(0xFF5669FF)),
-                        child: Text(
-                          "Add Event",
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleMedium!
-                              .copyWith(color: Colors.white),
+                      child: Text(
+                        provider.eventModel != null?"Update Event":"Add Event",
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
                         ),
+                      ),
                     ),
                   ),
                 ],

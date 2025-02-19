@@ -25,7 +25,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Theme.of(context).primaryColor,
+        foregroundColor: Theme.of(context).floatingActionButtonTheme.foregroundColor,
+        backgroundColor: Theme.of(context).floatingActionButtonTheme.backgroundColor,
         onPressed: () {
           Navigator.pushNamed(context, CreateEventScreen.routeName);
         },
@@ -57,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Widget> tabs = [
     const HomeTab(),
-    MapTab(),
+    const MapTab(),
     const LoveTab(),
     const ProfileTab(),
   ];

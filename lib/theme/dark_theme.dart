@@ -43,7 +43,8 @@ class DarkTheme extends BaseTheme {
           ),
         ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
-          backgroundColor: primaryColor,
+          foregroundColor: textColor,
+          backgroundColor: backgroundColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(35),
             side: BorderSide(color: Colors.white, width: 4),

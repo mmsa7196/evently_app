@@ -2,17 +2,40 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:todo_c13_sun/models/task_model.dart';
 import 'package:todo_c13_sun/models/user_model.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 class FirebaseManager {
   static CollectionReference<EventModel> getTasksCollection() {
     return FirebaseFirestore.instance
         .collection("Tasks")
         .withConverter<EventModel>(
       fromFirestore: (snapshot, _) {
-        return EventModel.fromJson(snapshot.data()!);
+        Map<String, dynamic> data = snapshot.data()!;
+        return EventModel(
+          id: snapshot.id,
+          title: data['title'] ?? '',
+          description: data['description'] ?? '',
+          date: data['date'] ?? 0,
+          time: data['time'] ?? false,
+          image: data['image'] ?? '',
+          category: data['category'] ?? '',
+          userId: data['userId'] ?? '',
+          isDone: data['isDone'] ?? false,
+          latitude: data['latitude'] ?? 0.0,
+          longitude: data['longitude'] ?? 0.0,
+        );
       },
       toFirestore: (model, _) {
-        return model.toJson();
+        return {
+          'title': model.title,
+          'description': model.description,
+          'date': model.date,
+          'time': model.time,
+          'image': model.image,
+          'category': model.category,
+          'userId': model.userId,
+          'isDone': model.isDone,
+          'latitude': model.latitude,
+          'longitude': model.longitude,
+        };
       },
     );
   }
@@ -114,11 +137,15 @@ class FirebaseManager {
       print(e);
     }
   }
-
-
-
-
+  static Future<void>deletEvent(String id)async {
+    var  reference=getTasksCollection();
+   await reference.doc(id).delete();
+    }
   static logout() {
     FirebaseAuth.instance.signOut();
+  }
+  static Future<void>ubdateEvent(EventModel model)async {
+    var  reference=getTasksCollection();
+    await reference.doc(model.id).update(model.toJson());
   }
 }

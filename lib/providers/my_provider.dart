@@ -1,4 +1,6 @@
 
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart' show CollectionReference, FirebaseFirestore;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +8,9 @@ import 'package:shared_preferences/shared_preferences.dart' show SharedPreferenc
 
 class MyProvider extends ChangeNotifier {
   String get currentLanguage => _currentLanguage;
+  ThemeMode _themeMode = ThemeMode.light;
+  var selectedDate = DateTime.now();
+  var selectedTimer = TimeOfDay.now();
   String _currentLanguage = 'en';
   bool _isLogIn = false;
   int i = 0;
@@ -60,6 +65,15 @@ class MyProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  changeTimer(TimeOfDay timer) {
+    selectedTimer = timer;
+    notifyListeners();
+  }
+
+  changeDate(DateTime date) {
+    selectedDate = date;
+    notifyListeners();
+  }
 
   void changeLanguage(BuildContext context, String language) {
     _currentLanguage = language;
@@ -68,7 +82,7 @@ class MyProvider extends ChangeNotifier {
   }
 
 
-  ThemeMode themeMode = ThemeMode.light;
+   ThemeMode themeMode = ThemeMode.light;
   void changeTheme() {
     if (themeMode == ThemeMode.light) {
       themeMode = ThemeMode.dark;
@@ -77,6 +91,7 @@ class MyProvider extends ChangeNotifier {
     }
     notifyListeners();
   }
+  
 
 
 }

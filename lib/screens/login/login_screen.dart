@@ -1,4 +1,5 @@
 
+import 'package:animated_toggle_switch/animated_toggle_switch.dart' show AnimatedToggleSwitch, ToggleStyle;
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_c13_sun/base.dart';
 import 'package:todo_c13_sun/firebase/firebase_manager.dart';
+import 'package:todo_c13_sun/providers/my_provider.dart';
 import 'package:todo_c13_sun/providers/user_provider.dart';
 import 'package:todo_c13_sun/screens/auth/login_withe_google.dart';
 import 'package:todo_c13_sun/screens/auth/register.dart';
@@ -41,6 +43,7 @@ class _LoginScreenState extends BaseView<LoginScreen, LoginViewModel>
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<UserProvider>(context);
+    var myProvider = Provider.of<MyProvider>(context);
     return ChangeNotifierProvider(
       create: (context) => viewModel,
       child: Scaffold(
@@ -204,7 +207,32 @@ class _LoginScreenState extends BaseView<LoginScreen, LoginViewModel>
                   ],
                 ),
                 ),
-
+                SizedBox(height: 24,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AnimatedToggleSwitch<String>.rolling(
+                      current: myProvider.currentLanguage,
+                      values: const ["en", "ar"],
+                      onChanged: (value) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
+                          myProvider.changeLanguage(context, value);
+                        });
+                      },
+                      iconList: [
+                        Image.asset("assets/images/En.png"),
+                        Image.asset("assets/images/AR.png"),
+                      ],
+                      height: 40,
+                      indicatorSize: Size(40, 40),
+                      style: ToggleStyle(
+                        backgroundColor: Colors.transparent,
+                        indicatorColor: Theme.of(context).primaryColor,
+                        borderColor: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

@@ -13,24 +13,25 @@ class OnboardingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const bodyStyle = TextStyle(fontSize: 16.0,
-    color: Color(0xff1C1C1C),
+    var theme = Theme.of(context);
+    var bodyStyle = TextStyle(fontSize: 16.0,
+      color: theme.primaryColor,
     );
-    const pageDecoration = PageDecoration(
+    var pageDecoration = PageDecoration(
       imageFlex: 2,
-      titleTextStyle: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold,
+      titleTextStyle: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold,
       color: Color(0xff5669FF),
       ),
       bodyTextStyle: bodyStyle,
-      bodyPadding: EdgeInsets.all(0),
-      pageColor: Color(0xFFF2FEFF),
-      imagePadding: EdgeInsets.symmetric(horizontal: 18),
+      bodyPadding: const EdgeInsets.all(0),
+      pageColor: theme.scaffoldBackgroundColor,
+      imagePadding: const EdgeInsets.symmetric(horizontal: 18),
     );
     return IntroductionScreen(
       globalHeader: Image.asset("assets/images/app_logo.png"),
       dotsFlex: 2,
-      dotsDecorator: const DotsDecorator(color: Color(0xff1C1C1C),activeColor: Color(0xff5669FF)),
-      globalBackgroundColor: Color(0xFFF2FEFF) ,
+      dotsDecorator:  DotsDecorator(color: Color(0xff1C1C1C),activeColor: Color(0xff5669FF)),
+      globalBackgroundColor: theme.scaffoldBackgroundColor ,
       showDoneButton: true,
       onDone: () {
         Navigator.pushNamed(context,LoginScreen.routeName);

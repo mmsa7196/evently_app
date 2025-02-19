@@ -2,9 +2,11 @@ class EventModel {
   String id;
   String title;
   String description;
+  String image;
   String userId;
   bool isDone;
   int date;
+  bool time;
   String category;
   double latitude;
   double longitude;
@@ -12,33 +14,22 @@ class EventModel {
   EventModel({
     this.id = "",
     required this.date,
+    required this.time,
+    required this.image,
     required this.title,
     required this.category,
     required this.description,
     required this.userId,
     this.isDone = false,
-    this.latitude=0,
-    this.longitude=0
+    this.latitude = 0,
+    this.longitude = 0,
   });
-
-  EventModel.fromJson(Map<String, dynamic> json)
-      : this(
-          id: json['id'],
-          date: json['date'],
-          title: json['title'],
-          category: json['category'],
-          description: json['description'],
-          userId: json['userId'],
-          isDone: json['isDone'],
-          latitude: json['latitude']??0,
-          longitude: json['longitude']??0,
-
-        );
 
   Map<String, dynamic> toJson() {
     return {
       "id": id,
       "date": date,
+      "time": time,
       "title": title,
       "category": category,
       "description": description,
@@ -46,7 +37,6 @@ class EventModel {
       "isDone": isDone,
       "latitude": latitude,
       "longitude": longitude,
-
     };
   }
 }

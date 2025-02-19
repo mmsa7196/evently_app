@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +12,7 @@ class ProfileTab extends StatefulWidget {
   @override
   State<ProfileTab> createState() => _ProfileTabState();
 }
+
 class _ProfileTabState extends State<ProfileTab> {
   @override
   Widget build(BuildContext context) {
@@ -40,34 +42,27 @@ class _ProfileTabState extends State<ProfileTab> {
                     width: 124,
                     fit: BoxFit.cover,
                   ),
-                  const SizedBox(
-                    width: 16,
-                  ),
+                  const SizedBox(width: 16),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           FirebaseAuth.instance.currentUser?.displayName
-                                  ?.toUpperCase() ??
-                              "",
-                          style: const TextStyle(
-                              fontSize: 24,
+                              ?.toUpperCase() ?? "",
+                          style: const TextStyle(fontSize: 24,
                               fontWeight: FontWeight.bold,
                               color: Colors.white),
                         ),
                         Text(
                           FirebaseAuth.instance.currentUser?.email ?? "",
-                          style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white),
+                          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
                         ),
                       ],
                     ),
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ),
@@ -77,13 +72,8 @@ class _ProfileTabState extends State<ProfileTab> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              "Language",
-              style: theme.textTheme.titleMedium,
-            ),
-            const SizedBox(
-              height: 16,
-            ),
+            Text("Language".tr(), style: theme.textTheme.titleMedium),
+            const SizedBox(height: 16),
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
@@ -95,18 +85,20 @@ class _ProfileTabState extends State<ProfileTab> {
                 isExpanded: true,
                 icon: Icon(
                   Icons.arrow_drop_down_rounded,
-                  color: Theme.of(context).primaryColor,
+                  color: Theme
+                      .of(context)
+                      .primaryColor,
                   size: 30,
                 ),
                 underline: const SizedBox(),
                 items: [
                   DropdownMenuItem(
                     value: "ar",
-                    child: Text("Arabic", style: theme.textTheme.titleMedium),
+                    child: Text("Arabic".tr(), style: theme.textTheme.titleMedium),
                   ),
                   DropdownMenuItem(
                     value: "en",
-                    child: Text("English", style: theme.textTheme.titleMedium),
+                    child: Text("English".tr(), style: theme.textTheme.titleMedium),
                   ),
                 ],
                 onChanged: (value) {
@@ -116,40 +108,40 @@ class _ProfileTabState extends State<ProfileTab> {
                 },
               ),
             ),
-            const SizedBox(
-              height: 16,
-            ),
-            Text("Theme", style: theme.textTheme.titleMedium),
-            const SizedBox(
-              height: 16,
-            ),
+            const SizedBox(height: 16),
+            Text("Theme".tr(), style: theme.textTheme.titleMedium),
+            const SizedBox(height: 16),
             Container(
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(color: theme.primaryColor),
               ),
-              child: DropdownButton(
+              child: DropdownButton<ThemeMode>(
                 value: myProvider.themeMode,
                 isExpanded: true,
                 icon: Icon(
                   Icons.arrow_drop_down_rounded,
-                  color: Theme.of(context).primaryColor,
+                  color: Theme
+                      .of(context)
+                      .primaryColor,
                   size: 30,
                 ),
                 underline: const SizedBox(),
-                items: const [
+                items:  [
                   DropdownMenuItem(
                     value: ThemeMode.light,
-                    child: Text("Light"),
+                    child: Text("Light".tr()),
                   ),
                   DropdownMenuItem(
                     value: ThemeMode.dark,
-                    child: Text("Dark"),
+                    child: Text("Dark".tr()),
                   ),
                 ],
                 onChanged: (value) {
-                  myProvider.changeTheme();
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
+                    myProvider.changeTheme();
+                  });
                 },
               ),
             ),
@@ -160,16 +152,17 @@ class _ProfileTabState extends State<ProfileTab> {
                 Navigator.pushNamedAndRemoveUntil(
                   context,
                   LoginScreen.routeName,
-                  (route) => false,
+                      (route) => false,
                 );
               },
               style: OutlinedButton.styleFrom(
-                  foregroundColor: Colors.white,
-                  backgroundColor: const Color(0xffFF5659),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  padding: const EdgeInsets.all(8)),
+                foregroundColor: Colors.white,
+                backgroundColor: const Color(0xffFF5659),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                padding: const EdgeInsets.all(8),
+              ),
               child: Row(
                 children: [
                   Container(
@@ -183,19 +176,13 @@ class _ProfileTabState extends State<ProfileTab> {
                   const SizedBox(
                     width: 8,
                   ),
-                  const Expanded(
-                    child: Text("LogOut",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                        )),
+                   Expanded(
+                    child: Text("LogOut".tr(), style: const TextStyle(color: Colors.white, fontSize: 20)),
                   ),
                 ],
               ),
             ),
-            const SizedBox(
-              height: 24,
-            )
+            const SizedBox(height: 24),
           ],
         ),
       ),

@@ -27,6 +27,10 @@ dependencies:
   flutter_native_splash: ^2.4.4
   google_sign_in:
   shared_preferences: ^2.5.2
+  animated_toggle_switch: ^0.8.4
+  geocode: ^1.0.3
+
+
 
 dev_dependencies:
   flutter_test:
@@ -37,5 +41,6 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/
     - assets/translations/
 
